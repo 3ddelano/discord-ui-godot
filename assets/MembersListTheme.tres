@@ -1,0 +1,44 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/whitney_r_16.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.12549, 0.133333, 0.145098, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 20
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=3]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 2
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[resource]
+default_font = ExtResource( 1 )
+HBoxContainer/constants/separation = 0
+HSeparator/constants/separation = 4
+HSeparator/styles/separator = SubResource( 1 )
+VBoxContainer/constants/separation = 0
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = SubResource( 2 )
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = SubResource( 3 )
+VScrollBar/styles/scroll_focus = SubResource( 3 )
+VSeparator/constants/separation = 4
+VSeparator/styles/separator = SubResource( 4 )

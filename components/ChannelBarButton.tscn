@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/icons/bell.svg" type="Texture" id=1]
+[ext_resource path="res://components/ChannelBarButton.gd" type="Script" id=2]
+[ext_resource path="res://assets/custom_theme.tres" type="Theme" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="ChannelBarButton" type="MarginContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 30, 30 )
+size_flags_vertical = 4
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"tooltip_text": "Test tooltip"
+}
+
+[node name="MC" type="MarginContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+
+[node name="Icon" type="TextureRect" parent="MC"]
+self_modulate = Color( 0.72549, 0.733333, 0.745098, 1 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 38.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 28, 28 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+__meta__ = {
+"tooltip_text": "Test tooltip"
+}

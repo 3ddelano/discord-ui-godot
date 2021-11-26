@@ -1,0 +1,142 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/MessageTheme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/whitney_r_14.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/whitney_sb_18.tres" type="DynamicFont" id=3]
+[ext_resource path="res://materials/GuildIconButtonMaterial.tres" type="Material" id=4]
+[ext_resource path="res://assets/avatar_icons/321233875776962560.webp" type="Texture" id=5]
+[ext_resource path="res://components/BotIndicator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://components/Message.gd" type="Script" id=7]
+[ext_resource path="res://scripts/ExpandableTextEdit.gd" type="Script" id=8]
+[ext_resource path="res://assets/StyleBoxEmpty.tres" type="StyleBox" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.0980392 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.345098, 0.396078, 0.94902, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 20
+
+[node name="Message" type="PanelContainer"]
+margin_right = 472.0
+margin_bottom = 56.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_avatar_path = NodePath("MC/Avatar")
+_tag_path = NodePath("MC/MC/VB/Header/Tag")
+_bot_path = NodePath("MC/MC/VB/Header/BotIndicator")
+_timestamp_path = NodePath("MC/MC/VB/Header/Timestamp")
+_content_path = NodePath("MC/MC/VB/MessageContent")
+
+[node name="Hover" type="Panel" parent="."]
+visible = false
+margin_right = 472.0
+margin_bottom = 56.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )
+
+[node name="MC" type="MarginContainer" parent="."]
+margin_right = 472.0
+margin_bottom = 56.0
+mouse_filter = 2
+custom_constants/margin_right = 8
+custom_constants/margin_top = 4
+custom_constants/margin_left = 18
+custom_constants/margin_bottom = 4
+
+[node name="Avatar" type="TextureRect" parent="MC"]
+material = ExtResource( 4 )
+margin_left = 18.0
+margin_top = 4.0
+margin_right = 66.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 48, 48 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="MC" type="MarginContainer" parent="MC"]
+margin_left = 18.0
+margin_top = 4.0
+margin_right = 464.0
+margin_bottom = 52.0
+mouse_filter = 2
+custom_constants/margin_left = 64
+
+[node name="VB" type="VBoxContainer" parent="MC/MC"]
+margin_left = 64.0
+margin_right = 446.0
+margin_bottom = 48.0
+mouse_filter = 2
+
+[node name="Header" type="HBoxContainer" parent="MC/MC/VB"]
+margin_right = 382.0
+margin_bottom = 22.0
+mouse_filter = 2
+custom_constants/separation = 7
+
+[node name="Tag" type="Label" parent="MC/MC/VB/Header"]
+margin_right = 125.0
+margin_bottom = 22.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+custom_fonts/font = ExtResource( 3 )
+text = "3ddelano#6033"
+
+[node name="BotIndicator" parent="MC/MC/VB/Header" instance=ExtResource( 6 )]
+margin_left = 132.0
+margin_top = 4.0
+margin_right = 157.0
+margin_bottom = 18.0
+mouse_filter = 2
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 3 )
+
+[node name="Timestamp" type="Label" parent="MC/MC/VB/Header"]
+margin_left = 164.0
+margin_top = 2.0
+margin_right = 265.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.447059, 0.462745, 0.490196, 1 )
+text = "Today at 1:23 PM"
+
+[node name="MessageContent" type="TextEdit" parent="MC/MC/VB"]
+margin_top = 22.0
+margin_right = 382.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 350, 24 )
+mouse_filter = 1
+custom_styles/read_only = ExtResource( 9 )
+custom_styles/focus = ExtResource( 9 )
+custom_styles/normal = ExtResource( 9 )
+custom_colors/selection_color = Color( 0.0392157, 0.403922, 0.847059, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
+text = "First line of text here blah blah blah blah blah blah blah blah Second line of text here blah blah blah blah blah blah blah Third line of text here blah blah blah blah blah blah blah blah
+dsds
+dsaasds
+a
+dsdd
+-------------------
+dsads d ad ad asd sd sas dsd sd sd s ds ds ds ds dsads d ad ad asd sd sas dsd sd sd s ds ds ds ds dsads d ad ad asd sd sas dsd sd sd s ds ds ds ds dsads d ad ad asd sd sas dsd sd sd s ds ds ds ds dsads d ad ad asd sd sas dsd sd sd s ds ds ds ds dsads d ad ad asd sd sas dsd sd sd s ds ds ds ds dsads d ad ad asd sd sas dsd sd sd s ds ds ds ds dsads d ad ad asd sd sas dsd sd sd s ds ds ds ds
+3!ping
+.ping"
+readonly = true
+wrap_enabled = true
+script = ExtResource( 8 )

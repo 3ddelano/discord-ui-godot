@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/custom_theme.tres" type="Theme" id=1]
+[ext_resource path="res://components/Tooltip.gd" type="Script" id=2]
+[ext_resource path="res://assets/icons/triangle.svg" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0941176, 0.0980392, 0.109804, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 20
+shadow_color = Color( 0, 0, 0, 0.196078 )
+shadow_size = 2
+shadow_offset = Vector2( 0, 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "hide"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.94, 0.94 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.584314 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.07 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="Tooltip" type="Panel"]
+margin_right = 16.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 8, 18 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_max_rect = Vector2( 190, 300 )
+_margin = Vector2( 16, 16 )
+_text = ""
+
+[node name="Label" type="Label" parent="."]
+anchor_top = -13.8738
+anchor_right = 0.758092
+anchor_bottom = -13.8738
+margin_left = 8.0
+margin_top = 507.457
+margin_right = -4.12947
+margin_bottom = 527.457
+size_flags_vertical = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Triangle" type="TextureRect" parent="."]
+self_modulate = Color( 0.0941176, 0.0980392, 0.109804, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -8.0
+margin_right = 12.0
+margin_bottom = 10.0
+rect_scale = Vector2( 1, -1 )
+rect_pivot_offset = Vector2( 15, 2 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+anims/hide = SubResource( 2 )

@@ -1,0 +1,147 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://components/IconButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/icons/maximize.svg" type="Texture" id=2]
+[ext_resource path="res://assets/icons/multiply.svg" type="Texture" id=3]
+[ext_resource path="res://components/TopTitleBar.gd" type="Script" id=4]
+[ext_resource path="res://components/Resize.gd" type="Script" id=5]
+[ext_resource path="res://assets/custom_theme.tres" type="Theme" id=6]
+[ext_resource path="res://assets/logos/discord_top_logo.svg" type="Texture" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.12549, 0.133333, 0.145098, 1 )
+
+[node name="TopTitleBar" type="PanelContainer"]
+margin_right = 1280.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+theme = ExtResource( 6 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_minimize_btn_path = NodePath("HB/MinimizeBtn")
+_maximize_btn_path = NodePath("HB/MaximizeBtn")
+_close_btn_path = NodePath("HB/CloseBtn")
+
+[node name="HB" type="HBoxContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 28 )
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/separation = 6
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VS" type="VSeparator" parent="HB"]
+margin_right = 8.0
+margin_bottom = 28.0
+mouse_filter = 2
+custom_constants/separation = 8
+
+[node name="DiscordLogo" type="TextureRect" parent="HB"]
+self_modulate = Color( 0.447059, 0.462745, 0.490196, 1 )
+margin_left = 14.0
+margin_right = 80.0
+margin_bottom = 28.0
+texture = ExtResource( 7 )
+stretch_mode = 6
+
+[node name="VS2" type="VSeparator" parent="HB"]
+margin_left = 86.0
+margin_right = 1166.0
+margin_bottom = 28.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="MinimizeBtn" parent="HB" instance=ExtResource( 1 )]
+margin_left = 1172.0
+margin_right = 1204.0
+margin_bottom = 28.0
+
+[node name="MaximizeBtn" parent="HB" instance=ExtResource( 1 )]
+margin_left = 1210.0
+margin_right = 1242.0
+margin_bottom = 28.0
+icon_texture = ExtResource( 2 )
+
+[node name="CloseBtn" parent="HB" instance=ExtResource( 1 )]
+margin_left = 1248.0
+margin_right = 1280.0
+margin_bottom = 28.0
+icon_texture = ExtResource( 3 )
+icon_color_hover = Color( 1, 1, 1, 1 )
+bg_color_hover = Color( 0.929412, 0.258824, 0.270588, 1 )
+
+[node name="HB2" type="HBoxContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 28.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VB" type="VBoxContainer" parent="HB2"]
+margin_right = 6.0
+margin_bottom = 28.0
+mouse_filter = 2
+
+[node name="TopLeftResize" type="Control" parent="HB2/VB"]
+margin_right = 6.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 6, 6 )
+mouse_default_cursor_shape = 12
+size_flags_vertical = 0
+script = ExtResource( 5 )
+left = true
+top = true
+
+[node name="LeftResize" type="Control" parent="HB2/VB"]
+margin_top = 6.0
+margin_right = 6.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 6, 6 )
+mouse_default_cursor_shape = 10
+size_flags_vertical = 3
+script = ExtResource( 5 )
+left = true
+
+[node name="TopResize" type="Control" parent="HB2"]
+margin_left = 6.0
+margin_right = 1274.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 6, 6 )
+mouse_default_cursor_shape = 9
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource( 5 )
+top = true
+
+[node name="VB2" type="VBoxContainer" parent="HB2"]
+margin_left = 1274.0
+margin_right = 1280.0
+margin_bottom = 28.0
+mouse_filter = 2
+
+[node name="TopRightResize" type="Control" parent="HB2/VB2"]
+margin_right = 6.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 6, 6 )
+mouse_default_cursor_shape = 11
+size_flags_vertical = 0
+script = ExtResource( 5 )
+right = true
+top = true
+
+[node name="RightResize" type="Control" parent="HB2/VB2"]
+margin_top = 6.0
+margin_right = 6.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 6, 6 )
+mouse_default_cursor_shape = 10
+size_flags_vertical = 3
+script = ExtResource( 5 )
+right = true
