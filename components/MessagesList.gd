@@ -28,7 +28,6 @@ func _ready() -> void:
 	_messages_vb.connect("item_rect_changed", self, "_on_vb_item_rect_changed")
 
 func _on_vb_item_rect_changed():
-	var scroll = $SC.get_v_scroll()
 	yield(get_tree().create_timer(0.01), "timeout")
 	for child in _messages_vb.get_children():
 		child.content._on_text_changed(true)

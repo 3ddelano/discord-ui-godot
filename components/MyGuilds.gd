@@ -20,8 +20,12 @@ var guilds = [
 ]
 
 export (PackedScene) var _guild_icon_button_scene
+onready var _guilds_vb = $MC/VB
 func _ready() -> void:
-	for child in $MC/VB.get_children():
+	_load_guilds()
+
+func _load_guilds():
+	for child in _guilds_vb.get_children():
 		# Dont remove the HomeIcon and HSeparator
 		if child.name != "MC" and child.name != "HS":
 			child.visible = false
@@ -31,9 +35,10 @@ func _ready() -> void:
 		for i in range(guilds.size()):
 			var guild_data = guilds[i]
 			var guild = _guild_icon_button_scene.instance()
-			$MC/VB.add_child(guild)
+			_guilds_vb.add_child(guild)
 			var model = GuildModel.new(Utils.uuid(), guild_data.name, guild_data.icon)
 			guild.from_model(model)
+			Signals.register_tooltip(guild, "RIGHT")
 
 			if k == 0:
 				Cache.guilds[model.id] = guild

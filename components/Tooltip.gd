@@ -21,6 +21,12 @@ func _set_text(p_text):
 	if Engine.is_editor_hint():
 		_calculate_label_size()
 
+func set_dir(p_dir: String):
+	for child in $Points.get_children():
+		child.visible = false
+		if child.name == p_dir:
+			child.visible = true
+
 func _calculate_label_size():
 	# Update the text of the label
 	var label = $Label
@@ -42,7 +48,7 @@ func _calculate_label_size():
 	label.set_position(_margin / 2)
 	set_size(label.get_size() + _margin)
 	rect_pivot_offset = rect_size / 2
-	$Triangle.rect_position.x = (get_size().x - $Triangle.get_size().x * 0.8) / 2
+	#$Triangle.rect_position.x = (get_size().x - $Triangle.get_size().x * 0.8) / 2
 	label.set_position(_margin / 2)
 
 func set_text(text: String):

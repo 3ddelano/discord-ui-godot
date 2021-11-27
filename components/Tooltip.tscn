@@ -59,9 +59,9 @@ tracks/2/keys = {
 }
 
 [node name="Tooltip" type="Panel"]
-margin_right = 16.0
+margin_right = 24.0
 margin_bottom = 36.0
-rect_pivot_offset = Vector2( 8, 18 )
+rect_pivot_offset = Vector2( 12, 18 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 1 )
@@ -72,7 +72,7 @@ __meta__ = {
 }
 _max_rect = Vector2( 190, 300 )
 _margin = Vector2( 16, 16 )
-_text = ""
+_text = "a"
 
 [node name="Label" type="Label" parent="."]
 anchor_top = -13.8738
@@ -80,23 +80,36 @@ anchor_right = 0.758092
 anchor_bottom = -13.8738
 margin_left = 8.0
 margin_top = 507.457
-margin_right = -4.12947
+margin_right = 3.87053
 margin_bottom = 527.457
 size_flags_vertical = 1
+text = "a"
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Triangle" type="TextureRect" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+anims/hide = SubResource( 2 )
+
+[node name="Points" type="ReferenceRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DOWN" type="TextureRect" parent="Points"]
 self_modulate = Color( 0.0941176, 0.0980392, 0.109804, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -8.0
-margin_right = 12.0
+margin_left = -10.0
+margin_right = 10.0
 margin_bottom = 10.0
-rect_scale = Vector2( 1, -1 )
-rect_pivot_offset = Vector2( 15, 2 )
+rect_min_size = Vector2( 20, 10 )
+rect_scale = Vector2( -1, -1 )
+rect_pivot_offset = Vector2( 8.8, 1 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
@@ -105,6 +118,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-method_call_mode = 1
-anims/hide = SubResource( 2 )
+[node name="UP" type="TextureRect" parent="Points"]
+self_modulate = Color( 0.0941176, 0.0980392, 0.109804, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+rect_min_size = Vector2( 20, 10 )
+rect_scale = Vector2( -1, -1 )
+rect_pivot_offset = Vector2( 11.167, 9.21 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RIGHT" type="TextureRect" parent="Points"]
+self_modulate = Color( 0.0941176, 0.0980392, 0.109804, 1 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -5.0
+margin_right = 20.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 20, 10 )
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 2, 0 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

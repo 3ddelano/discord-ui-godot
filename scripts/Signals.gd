@@ -10,8 +10,8 @@ var debug = {
 	"fps": 0
 }
 
-func register_tooltip(node: Object):
-	emit_signal("register_tooltip", node)
+func register_tooltip(node: Object, dir: String):
+	emit_signal("register_tooltip", node, dir)
 
 func show_guild_hover_indicator(global_pos):
 	emit_signal("guild_hover_indicator", true, global_pos)

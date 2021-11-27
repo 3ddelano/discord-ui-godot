@@ -38,13 +38,12 @@ func _ready() -> void:
 	state = merge(_default_state, _load_state())
 	print("Loaded App State: ", state)
 
-	# Emit all the singals once here
+	# Emit all the signals once here
 	emit_signal("maximized", state.maximized)
 
 func _save_state():
 	var file = File.new()
 	file.open(SAVE_LOCATION, File.WRITE)
-	#print("Saved App State")
 	file.store_var(state)
 	file.close()
 

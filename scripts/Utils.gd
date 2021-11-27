@@ -6,7 +6,7 @@ static func rand_int(max_value):
 
 static func rand_bytes(n):
 	var r = []
-	for index in range(0, n):
+	for _i in range(0, n):
 		r.append(rand_int(256))
 
 	return r
@@ -33,6 +33,7 @@ static func get_cur_time_string() -> String:
 	var time = OS.get_time()
 	var meridian = "AM"
 	if time.hour > 12:
+		time.hour -= 12
 		meridian = "PM"
 
-	return "%s:%s %s" % [str(time.hour).pad_zeros(2), str(time.minute).pad_zeros(2), meridian]
+	return "%s:%s %s" % [str(time.hour), str(time.minute).pad_zeros(2), meridian]

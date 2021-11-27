@@ -37,7 +37,6 @@ func _get_real_line_count():
 		var line = get_line(i) # Get the string of the line
 		var width = font.get_string_size(line).x
 		if width > rect_size.x - scroll_size:
-			var num_lines = font.get_wordwrap_string_size(line, rect_size.x - scroll_size - 16).y / line_height
 			lines_to_add += int(width / (rect_size.x - scroll_size))
 
 	return count + lines_to_add

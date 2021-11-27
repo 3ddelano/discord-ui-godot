@@ -24,11 +24,9 @@ func _on_mouse_exited() -> void:
 
 func _process(_delta: float) -> void:
 	if is_hovered():
-		#cur_radius = _icon.material.get_shader_param("radius")
 		cur_radius = lerp(cur_radius, radius_hover, weight)
 		_icon.material.set_shader_param("radius", cur_radius)
 	else:
-		#cur_radius = _icon.material.get_shader_param("radius")
 		cur_radius = lerp(cur_radius, radius_normal, weight)
 		_icon.material.set_shader_param("radius", cur_radius)
 
@@ -40,4 +38,5 @@ func set_icon(p_texture: Texture):
 
 func from_model(p_model: GuildModel):
 	model = p_model
+	set_meta("tooltip_text", model._name)
 	$Icon.texture = model.icon

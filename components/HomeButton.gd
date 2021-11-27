@@ -20,6 +20,9 @@ func _ready() -> void:
 	stylebox.set_corner_radius_all(radius_normal)
 	stylebox.set_bg_color(color_normal)
 
+	get_parent().set_meta("tooltip_text", "Home")
+	Signals.register_tooltip(get_parent(), "RIGHT")
+
 func _on_mouse_entered():
 	Signals.show_guild_hover_indicator(rect_global_position + Vector2(0, rect_size.y / 2))
 	set_process(true)

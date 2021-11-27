@@ -1,7 +1,6 @@
 extends Node
 
 var users = {}
-var messages = {}
 var guilds = {}
 
 
@@ -9,6 +8,9 @@ var guilds = {}
 # Not implemented
 ##
 
+# var messages = {
+# 
+#}
 #var channels = {
 #
 #}

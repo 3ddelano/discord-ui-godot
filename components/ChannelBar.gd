@@ -13,7 +13,7 @@ func _on_app_ready():
 	for node in get_children():
 		node = node as Node
 		if node.has_meta("tooltip_text"):
-			Signals.register_tooltip(node.get_node("Button"))
+			Signals.register_tooltip(node.get_node("Button"), "DOWN")
 
 func _on_users_button_pressed():
 	Datastore.update_state({

@@ -20,10 +20,9 @@ onready var original_size = Datastore.state.window_size
 onready var original_position = Datastore.state.window_position
 
 func _ready() -> void:
+	Signals.connect("register_tooltip", get_parent().get_parent().get_node("ToolTips"), "_on_register_tooltip")
 	if OS.get_name() == "HTML5":
-		$HB/MinimizeBtn.queue_free()
-		$HB/MaximizeBtn.queue_free()
-		$HB/CloseBtn.queue_free()
+		queue_free()
 		return
 
 	_minimize_btn.connect("pressed", self, "_on_minimize_btn_pressed")
@@ -83,7 +82,9 @@ func _maximize(force = false):
 		original_position = OS.get_window_position()
 		var max_size = OS.get_screen_size()
 		if OS.get_name() != "HTML5":
+			# Account for the taskbar height
 			max_size -= Vector2(0,60)
+		
 		OS.set_window_size(max_size)
 		OS.set_window_position(Vector2(0,0))
 		Datastore.update_state({

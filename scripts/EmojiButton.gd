@@ -25,19 +25,11 @@ onready var _button = $Button as Button
 
 func _ready() -> void:
 	_button.connect("mouse_entered", self, "_on_mouse_entered")
-	_button.connect("mouse_exited", self, "_on_mouse_exited")
-
 	rect_scale = Vector2(scale_normal, scale_normal)
 	set_process(false)
 
-
 func _on_mouse_entered():
 	set_process(true)
-	#_icon.set_self_modulate(icon_color_hover)
-
-func _on_mouse_exited():
-	pass
-	#_icon.set_self_modulate(icon_color_normal)
 
 func get_button() -> Button:
 	return $Button as Button
