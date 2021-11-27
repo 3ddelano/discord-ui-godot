@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://scripts/ExpandableTextEdit.gd"
 }, {
 "base": "BaseModel",
+"class": "GuildModel",
+"language": "GDScript",
+"path": "res://models/GuildModel.gd"
+}, {
+"base": "BaseModel",
 "class": "MessageModel",
 "language": "GDScript",
 "path": "res://models/MessageModel.gd"
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "BaseModel": "",
 "ExpandableTextEdit": "",
+"GuildModel": "",
 "MessageModel": "",
 "UserModel": ""
 }
@@ -48,8 +54,9 @@ config/icon="res://icon.png"
 [autoload]
 
 Utils="*res://scripts/Utils.gd"
-Datastore="*res://scripts/Datastore.gd"
 Constants="*res://scripts/Constants.gd"
+Datastore="*res://scripts/Datastore.gd"
+Cache="*res://scripts/Cache.gd"
 Signals="*res://scripts/Signals.gd"
 
 [display]

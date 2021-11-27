@@ -32,6 +32,7 @@ var users = [
 func _ready() -> void:
 	Datastore.connect("users_list_visible", self, "_on_users_list_visible")
 	_load_users()
+	_on_users_list_visible(Datastore.state.users_list_visible)
 
 func _on_users_list_visible(users_list_visible):
 	visible = users_list_visible
@@ -49,3 +50,6 @@ func _load_users():
 			var user = _user_scene.instance()
 			_users_vb.add_child(user)
 			user.from_model(model)
+			if k == 0:
+				# Save the user in cache
+				Cache.users[model.id] = user

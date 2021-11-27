@@ -13,6 +13,7 @@ var original_window_size = Vector2()
 func _ready() -> void:
 	connect("gui_input", self, "_on_gui_input")
 	Datastore.connect("maximized", self, "_on_maximized")
+	set_process(false)
 
 func _on_gui_input(event: InputEvent):
 	if not (event is InputEventMouseButton and event.button_index == BUTTON_LEFT):
@@ -25,12 +26,15 @@ func _on_gui_input(event: InputEvent):
 			"window_size": OS.window_size,
 			"window_position": OS.window_position
 		})
+	else:
+		set_process(true)
 	drag_start_pos = get_local_mouse_position()
 	original_window_position = OS.window_position
 	original_window_size = OS.window_size
 
 func _process(_delta: float) -> void:
 	if not _is_dragging:
+		set_process(false)
 		return
 
 	if top:

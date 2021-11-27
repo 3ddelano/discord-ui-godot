@@ -23,4 +23,5 @@ func scroll_messages():
 	emit_signal("scroll_messages")
 
 func add_message(message_data: Dictionary):
-	emit_signal("message_received", message_data)
+	var model = MessageModel.new(Utils.uuid(), message_data.content, message_data.author_id, message_data.timestamp)
+	emit_signal("message_received", model)

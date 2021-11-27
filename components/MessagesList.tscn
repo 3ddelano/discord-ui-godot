@@ -40,6 +40,7 @@ size_flags_vertical = 3
 
 [node name="Message" parent="SC/MC/VB" instance=ExtResource( 2 )]
 margin_right = 464.0
+margin_bottom = 56.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="Message2" parent="SC/MC/VB" instance=ExtResource( 2 )]

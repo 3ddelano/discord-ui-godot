@@ -46,7 +46,7 @@ VScrollBar/styles/grabber_pressed = SubResource( 8 )
 VScrollBar/styles/scroll = SubResource( 9 )
 VScrollBar/styles/scroll_focus = SubResource( 10 )
 
-[sub_resource type="StyleBoxFlat" id=17]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.345098, 0.396078, 0.94902, 1 )
 corner_radius_top_left = 26
 corner_radius_top_right = 26
@@ -55,20 +55,20 @@ corner_radius_bottom_left = 26
 corner_detail = 20
 anti_aliasing = false
 
-[sub_resource type="StyleBoxLine" id=18]
+[sub_resource type="StyleBoxLine" id=13]
 color = Color( 1, 1, 1, 0.0392157 )
 grow_begin = -12.0
 grow_end = -12.0
-
-[sub_resource type="StyleBoxEmpty" id=12]
-
-[sub_resource type="StyleBoxEmpty" id=13]
 
 [sub_resource type="StyleBoxEmpty" id=14]
 
 [sub_resource type="StyleBoxEmpty" id=15]
 
 [sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=18]
 
 [node name="MyGuildsSC" type="ScrollContainer"]
 margin_right = 90.0
@@ -105,12 +105,13 @@ margin_bottom = 52.0
 rect_min_size = Vector2( 52, 52 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
-custom_styles/panel = SubResource( 17 )
+custom_styles/panel = SubResource( 12 )
 script = ExtResource( 4 )
 
 [node name="MC" type="MarginContainer" parent="MC/VB/MC/HomeButton"]
 margin_right = 52.0
 margin_bottom = 52.0
+mouse_filter = 2
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
@@ -123,6 +124,7 @@ margin_top = 8.0
 margin_right = 43.0
 margin_bottom = 44.0
 rect_min_size = Vector2( 35, 35 )
+mouse_filter = 2
 size_flags_horizontal = 4
 size_flags_vertical = 5
 texture = ExtResource( 3 )
@@ -143,108 +145,108 @@ custom_styles/normal = ExtResource( 5 )
 margin_top = 60.0
 margin_right = 90.0
 margin_bottom = 76.0
-custom_styles/separator = SubResource( 18 )
+custom_styles/separator = SubResource( 13 )
 custom_constants/separation = 16
 
 [node name="GuildIconButton2" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 84.0
 margin_right = 90.0
 margin_bottom = 144.0
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="GuildIconButton3" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 152.0
 margin_right = 90.0
 margin_bottom = 212.0
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="GuildIconButton4" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 220.0
 margin_right = 90.0
 margin_bottom = 280.0
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="GuildIconButton5" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 288.0
 margin_right = 90.0
 margin_bottom = 348.0
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="GuildIconButton6" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 356.0
 margin_right = 90.0
 margin_bottom = 416.0
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="GuildIconButton7" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 424.0
 margin_right = 90.0
 margin_bottom = 484.0
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="GuildIconButton8" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 492.0
 margin_right = 90.0
 margin_bottom = 552.0
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="GuildIconButton9" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 560.0
 margin_right = 90.0
 margin_bottom = 620.0
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="GuildIconButton10" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 628.0
 margin_right = 90.0
 margin_bottom = 688.0
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="GuildIconButton11" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 696.0
 margin_right = 90.0
 margin_bottom = 756.0
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 
 [node name="GuildIconButton12" parent="MC/VB" instance=ExtResource( 2 )]
 margin_top = 764.0

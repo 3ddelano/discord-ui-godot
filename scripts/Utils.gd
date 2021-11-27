@@ -28,3 +28,11 @@ static func uuid():
 	var node = '%02x%02x%02x%02x%02x%02x' % [b[10], b[11], b[12], b[13], b[14], b[15]]
 
 	return '%s-%s-%s-%s-%s' % [low, mid, hi, clock, node]
+
+static func get_cur_time_string() -> String:
+	var time = OS.get_time()
+	var meridian = "AM"
+	if time.hour > 12:
+		meridian = "PM"
+
+	return "%s:%s %s" % [str(time.hour).pad_zeros(2), str(time.minute).pad_zeros(2), meridian]

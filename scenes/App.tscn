@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://components/TopTitleBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/App.gd" type="Script" id=2]
@@ -19,6 +19,14 @@
 [ext_resource path="res://assets/StyleBoxEmpty.tres" type="StyleBox" id=17]
 [ext_resource path="res://assets/fonts/whitney_r_12.tres" type="DynamicFont" id=18]
 [ext_resource path="res://components/TextInput.gd" type="Script" id=19]
+[ext_resource path="res://assets/icons/attach.svg" type="Texture" id=20]
+[ext_resource path="res://components/IconButton.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/icons/gift.svg" type="Texture" id=22]
+[ext_resource path="res://assets/icons/sticker.svg" type="Texture" id=23]
+[ext_resource path="res://assets/icons/gif.svg" type="Texture" id=24]
+[ext_resource path="res://assets/icons/party_emoji.svg" type="Texture" id=25]
+[ext_resource path="res://materials/EmojiButtonMaterial.tres" type="Material" id=26]
+[ext_resource path="res://scripts/EmojiButton.gd" type="Script" id=27]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.12549, 0.133333, 0.145098, 1 )
@@ -73,6 +81,17 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0, 0, 0, 0.501961 )
 corner_radius_top_left = 4
 corner_radius_top_right = 4
@@ -80,15 +99,14 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 corner_detail = 20
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=18]
 bg_color = Color( 1, 1, 1, 1 )
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_detail = 20
 anti_aliasing = false
 
-[sub_resource type="Animation" id=14]
-resource_name = "hide"
+[sub_resource type="Animation" id=19]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -103,8 +121,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
 }
 
-[sub_resource type="Animation" id=15]
-resource_name = "show"
+[sub_resource type="Animation" id=20]
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
@@ -120,7 +137,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=16]
+[sub_resource type="StyleBoxFlat" id=21]
 draw_center = false
 border_width_left = 1
 border_width_top = 1
@@ -351,50 +368,73 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MessagesList" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB" instance=ExtResource( 13 )]
-margin_bottom = 455.0
+margin_bottom = 461.0
 
 [node name="MessageForm" type="MarginContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB"]
-margin_top = 455.0
+margin_top = 461.0
 margin_right = 483.0
 margin_bottom = 534.0
 size_flags_vertical = 0
-custom_constants/margin_right = 16
+custom_constants/margin_right = 20
 custom_constants/margin_top = 1
-custom_constants/margin_left = 16
+custom_constants/margin_left = 20
 custom_constants/margin_bottom = 32
 
 [node name="TextInput" type="PanelContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm"]
-margin_left = 16.0
+margin_left = 20.0
 margin_top = 1.0
-margin_right = 467.0
-margin_bottom = 47.0
+margin_right = 463.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 11 )
 script = ExtResource( 19 )
 
-[node name="MC" type="MarginContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput"]
-margin_right = 451.0
-margin_bottom = 46.0
-custom_constants/margin_right = 20
-custom_constants/margin_top = 11
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 11
+[node name="HB" type="HBoxContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput"]
+margin_right = 443.0
+margin_bottom = 40.0
 
-[node name="PlaceholderText" type="Label" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/MC"]
-margin_left = 20.0
-margin_top = 13.0
-margin_right = 431.0
-margin_bottom = 33.0
+[node name="MC" type="MarginContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB"]
+margin_right = 48.0
+margin_bottom = 36.0
+size_flags_vertical = 0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 12
+custom_constants/margin_left = 8
+
+[node name="IconButton" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC" instance=ExtResource( 21 )]
+margin_left = 8.0
+margin_top = 12.0
+margin_right = 40.0
+margin_bottom = 36.0
+icon_texture = ExtResource( 20 )
+bg_color_hover = Color( 0, 0, 0, 0 )
+
+[node name="MC2" type="MarginContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB"]
+margin_left = 48.0
+margin_right = 284.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 14
+custom_constants/margin_top = 8
+custom_constants/margin_left = 14
+custom_constants/margin_bottom = 8
+
+[node name="PlaceholderText" type="Label" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC2"]
+margin_left = 14.0
+margin_top = 10.0
+margin_right = 139.0
+margin_bottom = 30.0
+size_flags_horizontal = 0
 custom_colors/font_color = Color( 0.447059, 0.462745, 0.482353, 1 )
 text = "Message #general"
 
-[node name="ExpandableTextEdit" type="TextEdit" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/MC"]
-margin_left = 20.0
-margin_top = 11.0
-margin_right = 431.0
-margin_bottom = 35.0
-rect_min_size = Vector2( 300, 24 )
+[node name="ExpandableTextEdit" type="TextEdit" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC2"]
+margin_left = 14.0
+margin_top = 8.0
+margin_right = 222.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 150, 24 )
 custom_styles/read_only = ExtResource( 17 )
 custom_styles/focus = ExtResource( 17 )
 custom_styles/normal = ExtResource( 17 )
@@ -407,6 +447,82 @@ wrap_enabled = true
 caret_blink = true
 caret_blink_speed = 0.35
 script = ExtResource( 16 )
+
+[node name="MC3" type="MarginContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB"]
+margin_left = 284.0
+margin_right = 443.0
+margin_bottom = 40.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 9
+
+[node name="HB" type="HBoxContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC3"]
+margin_top = 9.0
+margin_right = 157.0
+margin_bottom = 38.0
+size_flags_vertical = 0
+custom_constants/separation = 8
+
+[node name="GiftButton" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC3/HB" instance=ExtResource( 21 )]
+margin_bottom = 29.0
+icon_texture = ExtResource( 22 )
+bg_color_hover = Color( 0, 0, 0, 0 )
+
+[node name="GifButton" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC3/HB" instance=ExtResource( 21 )]
+margin_left = 40.0
+margin_right = 72.0
+margin_bottom = 29.0
+icon_texture = ExtResource( 24 )
+bg_color_hover = Color( 0, 0, 0, 0 )
+
+[node name="StickerButton" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC3/HB" instance=ExtResource( 21 )]
+margin_left = 80.0
+margin_right = 112.0
+margin_bottom = 29.0
+icon_texture = ExtResource( 23 )
+bg_color_hover = Color( 0, 0, 0, 0 )
+
+[node name="EmojiButton" type="MarginContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC3/HB"]
+margin_left = 120.0
+margin_right = 157.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 24, 24 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+icon_texture = ExtResource( 25 )
+
+[node name="Button" type="Button" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC3/HB/EmojiButton"]
+margin_right = 37.0
+margin_bottom = 29.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/disabled = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+
+[node name="MC" type="MarginContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC3/HB/EmojiButton"]
+margin_right = 37.0
+margin_bottom = 29.0
+mouse_filter = 2
+custom_constants/margin_right = 4
+custom_constants/margin_left = 4
+
+[node name="Icon" type="TextureRect" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC3/HB/EmojiButton/MC"]
+material = ExtResource( 26 )
+margin_left = 4.0
+margin_right = 33.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 29, 29 )
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 25 )
+expand = true
+stretch_mode = 6
 
 [node name="MembersList" parent="VB/MC/BG/HB/HB/VB2/PC/HB" instance=ExtResource( 14 )]
 
@@ -496,7 +612,7 @@ margin_bottom = 45.0
 mouse_filter = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_styles/panel = SubResource( 12 )
+custom_styles/panel = SubResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -531,21 +647,21 @@ rect_pivot_offset = Vector2( 0, 12 )
 mouse_filter = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 18 )
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VB/MC/Overlays/GuildHoverIndicator"]
-anims/hide = SubResource( 14 )
-anims/show = SubResource( 15 )
+anims/hide = SubResource( 19 )
+anims/show = SubResource( 20 )
 
 [node name="Border" type="Panel" parent="."]
 margin_right = 1174.0
 margin_bottom = 626.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 16 )
+custom_styles/panel = SubResource( 21 )
 __meta__ = {
 "_edit_lock_": true
 }

@@ -18,15 +18,12 @@ func _ready():
 	line_count = _get_real_line_count()
 	_update_height(line_count)
 
-	connect("text_changed", self, "_on_text_changed")
+	connect("text_changed", self, "_text_changed")
 
 func _get_line_spacing():
-	var spacing
-	if get_constant("line_spacing") != null:
-		spacing =  get_constant("line_spacing")
-	else:
-		spacing = 4
-
+	var spacing = 4
+	if get_constant("linespacing") != null:
+		spacing  = get_constant("line_spacing")
 
 	return spacing
 
@@ -40,10 +37,7 @@ func _get_real_line_count():
 		var line = get_line(i) # Get the string of the line
 		var width = font.get_string_size(line).x
 		if width > rect_size.x - scroll_size:
-			#lines_to_add += int(width / (rect_size.x - scroll_size))
 			var num_lines = font.get_wordwrap_string_size(line, rect_size.x - scroll_size - 16).y / line_height
-			#Signals.debug.calc_line1 = num_lines
-			#Signals.debug.calc_line2 = int(width / (rect_size.x - scroll_size))
 			lines_to_add += int(width / (rect_size.x - scroll_size))
 
 	return count + lines_to_add
@@ -60,11 +54,13 @@ func _update_height(count):
 	var lines_to_show = count
 	rect_min_size.y = lines_to_show * (line_height + line_spacing * 1.5)
 	rect_size.y = rect_min_size.y
-
 	update()
 
-func _on_text_changed():
+func _text_changed():
+	_on_text_changed(false)
+
+func _on_text_changed(force = false):
 	var new_line_count = _get_real_line_count()
-	if line_count != new_line_count:
-		_update_height(new_line_count)
+	if force or line_count != new_line_count:
 		line_count = new_line_count
+		_update_height(new_line_count)
