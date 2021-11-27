@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://components/TopTitleBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/App.gd" type="Script" id=2]
@@ -28,6 +28,12 @@
 [ext_resource path="res://materials/EmojiButtonMaterial.tres" type="Material" id=26]
 [ext_resource path="res://scripts/EmojiButton.gd" type="Script" id=27]
 [ext_resource path="res://components/UserArea.tscn" type="PackedScene" id=28]
+[ext_resource path="res://assets/icons/multiply.svg" type="Texture" id=29]
+[ext_resource path="res://components/ChannelBarButton.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/icons/github.svg" type="Texture" id=31]
+[ext_resource path="res://assets/icons/youtube.svg" type="Texture" id=32]
+[ext_resource path="res://scenes/HelpPanel.gd" type="Script" id=33]
+[ext_resource path="res://assets/fonts/whitney_r_14.tres" type="DynamicFont" id=34]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.12549, 0.133333, 0.145098, 1 )
@@ -57,16 +63,16 @@ anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id=7]
 
-[sub_resource type="StyleBoxFlat" id=17]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.211765, 0.223529, 0.247059, 1 )
 
-[sub_resource type="StyleBoxLine" id=18]
+[sub_resource type="StyleBoxLine" id=9]
 color = Color( 1, 1, 1, 0.0392157 )
 grow_begin = -12.0
 grow_end = -12.0
 vertical = true
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.211765, 0.223529, 0.247059, 1 )
 border_width_top = 2
 border_width_right = 1
@@ -74,25 +80,25 @@ border_width_bottom = 1
 border_color = Color( 0.137255, 0.145098, 0.160784, 1 )
 border_blend = true
 
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.25098, 0.266667, 0.294118, 1 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0, 0, 0, 0 )
 
-[sub_resource type="StyleBoxEmpty" id=22]
+[sub_resource type="StyleBoxEmpty" id=13]
 
-[sub_resource type="StyleBoxEmpty" id=23]
+[sub_resource type="StyleBoxEmpty" id=14]
 
-[sub_resource type="StyleBoxEmpty" id=24]
+[sub_resource type="StyleBoxEmpty" id=15]
 
-[sub_resource type="StyleBoxEmpty" id=25]
+[sub_resource type="StyleBoxEmpty" id=16]
 
-[sub_resource type="StyleBoxFlat" id=26]
+[sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0, 0, 0, 0.501961 )
 corner_radius_top_left = 4
 corner_radius_top_right = 4
@@ -100,14 +106,14 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 corner_detail = 20
 
-[sub_resource type="StyleBoxFlat" id=27]
+[sub_resource type="StyleBoxFlat" id=18]
 bg_color = Color( 1, 1, 1, 1 )
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_detail = 20
 anti_aliasing = false
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=19]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -122,7 +128,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=20]
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
@@ -138,7 +144,34 @@ tracks/0/keys = {
 "values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=30]
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0, 0, 0, 0.780392 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0.211765, 0.223529, 0.247059, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 1, 1, 1, 0.0588235 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id=23]
 draw_center = false
 border_width_left = 1
 border_width_top = 1
@@ -278,7 +311,7 @@ custom_constants/separation = 0
 margin_right = 784.0
 margin_bottom = 61.0
 rect_min_size = Vector2( 0, 61 )
-custom_styles/panel = SubResource( 17 )
+custom_styles/panel = SubResource( 8 )
 
 [node name="MC" type="MarginContainer" parent="VB/MC/BG/HB/HB/VB2/Top"]
 anchor_right = 1.0
@@ -331,7 +364,7 @@ text = "general"
 margin_left = 129.0
 margin_right = 145.0
 margin_bottom = 61.0
-custom_styles/separator = SubResource( 18 )
+custom_styles/separator = SubResource( 9 )
 custom_constants/separation = 16
 
 [node name="ChannelName2" type="Label" parent="VB/MC/BG/HB/HB/VB2/Top/MC/HB/Left"]
@@ -356,7 +389,7 @@ margin_right = 784.0
 margin_bottom = 598.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 19 )
+custom_styles/panel = SubResource( 10 )
 
 [node name="HB" type="HBoxContainer" parent="VB/MC/BG/HB/HB/VB2/PC"]
 margin_top = 2.0
@@ -391,7 +424,7 @@ margin_right = 463.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 20 )
+custom_styles/panel = SubResource( 11 )
 script = ExtResource( 19 )
 
 [node name="HB" type="HBoxContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput"]
@@ -502,11 +535,11 @@ margin_bottom = 29.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 21 )
-custom_styles/pressed = SubResource( 22 )
-custom_styles/focus = SubResource( 23 )
-custom_styles/disabled = SubResource( 24 )
-custom_styles/normal = SubResource( 25 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/disabled = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
 
 [node name="MC" type="MarginContainer" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB/MessageForm/TextInput/HB/MC3/HB/EmojiButton"]
 margin_right = 37.0
@@ -616,7 +649,7 @@ margin_bottom = 45.0
 mouse_filter = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_styles/panel = SubResource( 26 )
+custom_styles/panel = SubResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -651,21 +684,174 @@ rect_pivot_offset = Vector2( 0, 12 )
 mouse_filter = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-custom_styles/panel = SubResource( 27 )
+custom_styles/panel = SubResource( 18 )
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VB/MC/Overlays/GuildHoverIndicator"]
-anims/hide = SubResource( 28 )
-anims/show = SubResource( 29 )
+anims/hide = SubResource( 19 )
+anims/show = SubResource( 20 )
+
+[node name="HelpPanel" type="PanelContainer" parent="VB/MC/Overlays"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 21 )
+script = ExtResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC" type="CenterContainer" parent="VB/MC/Overlays/HelpPanel"]
+margin_right = 1174.0
+margin_bottom = 598.0
+
+[node name="PC" type="PanelContainer" parent="VB/MC/Overlays/HelpPanel/CC"]
+margin_left = 427.0
+margin_top = 224.0
+margin_right = 747.0
+margin_bottom = 374.0
+rect_min_size = Vector2( 320, 150 )
+custom_styles/panel = SubResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MC" type="MarginContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC"]
+margin_right = 320.0
+margin_bottom = 202.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 12
+custom_constants/margin_left = 18
+custom_constants/margin_bottom = 18
+
+[node name="VB" type="VBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC"]
+margin_left = 18.0
+margin_top = 12.0
+margin_right = 304.0
+margin_bottom = 184.0
+custom_constants/separation = 16
+
+[node name="HB" type="HBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB"]
+margin_right = 286.0
+margin_bottom = 36.0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB"]
+margin_top = 6.0
+margin_right = 40.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 8 )
+text = "Help"
+
+[node name="HSeparator" type="HSeparator" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB"]
+margin_left = 40.0
+margin_right = 250.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="PanelContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB"]
+margin_left = 250.0
+margin_right = 286.0
+margin_bottom = 36.0
+custom_styles/panel = SubResource( 22 )
+
+[node name="Button" type="Button" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB/CloseButton"]
+margin_right = 36.0
+margin_bottom = 36.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 25 )
+custom_styles/pressed = ExtResource( 17 )
+custom_styles/focus = ExtResource( 17 )
+custom_styles/disabled = ExtResource( 17 )
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 18 )
+shortcut_in_tooltip = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MC" type="MarginContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB/CloseButton"]
+margin_right = 36.0
+margin_bottom = 36.0
+mouse_filter = 2
+custom_constants/margin_right = 6
+custom_constants/margin_top = 6
+custom_constants/margin_left = 6
+custom_constants/margin_bottom = 6
+
+[node name="CloseIcon" type="TextureRect" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB/CloseButton/MC"]
+self_modulate = Color( 0.8, 0.8, 0.8, 1 )
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 30.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 24, 24 )
+mouse_filter = 2
+texture = ExtResource( 29 )
+expand = true
+stretch_mode = 6
+
+[node name="VB" type="VBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB"]
+margin_top = 52.0
+margin_right = 286.0
+margin_bottom = 124.0
+custom_constants/separation = 12
+
+[node name="Label2" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/VB"]
+margin_right = 286.0
+margin_bottom = 43.0
+text = "A clone of Discord's UI made in the Godot Game Engine."
+autowrap = true
+
+[node name="Label3" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/VB"]
+margin_top = 55.0
+margin_right = 286.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 34 )
+text = "This project is not affiliated with Discord Inc."
+autowrap = true
+
+[node name="HB2" type="HBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB"]
+margin_top = 140.0
+margin_right = 286.0
+margin_bottom = 172.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB2"]
+margin_top = 6.0
+margin_right = 83.0
+margin_bottom = 26.0
+text = "By 3ddelano"
+
+[node name="HB" type="HBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB2"]
+margin_left = 216.0
+margin_right = 286.0
+margin_bottom = 32.0
+mouse_filter = 2
+size_flags_horizontal = 10
+custom_constants/separation = 6
+
+[node name="GithubButton" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB2/HB" instance=ExtResource( 30 )]
+margin_right = 32.0
+margin_bottom = 32.0
+size_flags_horizontal = 10
+_icon_texture = ExtResource( 31 )
+
+[node name="YoutubeButton" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB2/HB" instance=ExtResource( 30 )]
+margin_left = 38.0
+margin_right = 70.0
+margin_bottom = 32.0
+size_flags_horizontal = 10
+_icon_texture = ExtResource( 32 )
 
 [node name="Border" type="Panel" parent="."]
 margin_right = 1174.0
 margin_bottom = 626.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 30 )
+custom_styles/panel = SubResource( 23 )
 __meta__ = {
 "_edit_lock_": true
 }

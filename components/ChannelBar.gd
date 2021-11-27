@@ -3,6 +3,7 @@ extends HBoxContainer
 func _ready() -> void:
 	Signals.connect("app_ready", self, "_on_app_ready")
 	$UsersButton.get_button().connect("pressed", self, "_on_users_button_pressed")
+	$HelpButton.get_button().connect("pressed", self, "_on_help_button_pressed")
 
 	if Datastore.state.users_list_visible:
 		$UsersButton.toggle_state = true
@@ -19,3 +20,6 @@ func _on_users_button_pressed():
 	Datastore.update_state({
 		"users_list_visible": !Datastore.state.users_list_visible
 	})
+
+func _on_help_button_pressed():
+	Signals.emit_signal("show_help")

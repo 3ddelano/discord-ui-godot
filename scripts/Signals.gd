@@ -3,6 +3,7 @@ extends Node
 signal register_tooltip(node)
 signal guild_hover_indicator(show, global_pos)
 signal message_received(message_data)
+signal show_help
 signal scroll_messages
 signal app_ready
 
