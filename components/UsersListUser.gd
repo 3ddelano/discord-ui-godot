@@ -33,7 +33,7 @@ func set_status(p_status: String):
 
 func from_model(p_model: UserModel):
 	model = p_model
-	set_tag(model.tag)
+	set_tag(model.username + "#" + model.discriminator)
 	set_avatar(model.avatar)
 	set_bot(model.bot)
 	set_activity(model.activity)

@@ -7,21 +7,24 @@ var _user_scene = preload("res://components/UsersListUser.tscn")
 var users = [
 	{
 		"avatar": preload("res://assets/avatar_icons/321233875776962560.webp"),
-		"tag": "3ddelano#6033",
+		"username": "3ddelano",
+		"discriminator": "6033",
 		"activity": "Playing Discord Clone App",
 		"status": "DND",
 		"bot": false
 	},
 	{
 		"avatar": preload("res://assets/avatar_icons/332140864853901313.webp"),
-		"tag": "Delano Tatsumi#8248",
+		"username": "Delano Tatsumi",
+		"discriminator": "8248",
 		"activity": "Watching 3!help",
 		"status": "ONLINE",
 		"bot": true
 	},
 	{
 		"avatar": preload("res://assets/avatar_icons/907892129630662667.webp"),
-		"tag": "Delano's RPG#0137",
+		"username": "Delano's RPG",
+		"discriminator": "0137",
 		"activity": "Playing Godot Engine",
 		"status": "IDLE",
 		"bot": true
@@ -45,7 +48,7 @@ func _load_users():
 		for i in range(users.size()):
 			var user_data = users[i]
 
-			var model = UserModel.new(Utils.uuid(), user_data.tag, user_data.avatar, user_data.bot, user_data.activity, user_data.status)
+			var model = UserModel.new(Utils.uuid(), user_data.username, user_data.discriminator, user_data.avatar, user_data.bot, user_data.activity, user_data.status)
 
 			var user = _user_scene.instance()
 			_users_vb.add_child(user)
@@ -53,3 +56,8 @@ func _load_users():
 			if k == 0:
 				# Save the user in cache
 				Cache.users[model.id] = user
+
+	randomize()
+	var users = Cache.users.values()
+	users.shuffle()
+	Cache.me_user = users[0]

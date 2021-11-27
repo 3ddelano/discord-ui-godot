@@ -84,7 +84,7 @@ func _maximize(force = false):
 		if OS.get_name() != "HTML5":
 			# Account for the taskbar height
 			max_size -= Vector2(0,60)
-		
+
 		OS.set_window_size(max_size)
 		OS.set_window_position(Vector2(0,0))
 		Datastore.update_state({

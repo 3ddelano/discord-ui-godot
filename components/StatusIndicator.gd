@@ -1,4 +1,3 @@
-tool
 extends Panel
 
 enum STATUS {
@@ -14,7 +13,8 @@ var STRING_STATUS = {
 	"DND": STATUS.DND,
 	"INVISIBLE": STATUS.INVISIBLE
 }
-export (STATUS) var status = STATUS.ONLINE setget set_status
+var status = STATUS.ONLINE
+#export (STATUS) var status = STATUS.ONLINE setget set_status
 
 onready var _online_status = preload("res://components/UserStatus/ONLINE.tscn")
 onready var _idle_status = preload("res://components/UserStatus/IDLE.tscn")

@@ -1,247 +1,233 @@
 <!DOCTYPE html>
-<html xmlns='http://www.w3.org/1999/xhtml' lang='' xml:lang=''>
-<head>
-	<meta charset='utf-8' />
-	<meta name='viewport' content='width=device-width, user-scalable=no' />
-	<link id='-gd-engine-icon' rel='icon' type='image/png' href='favicon.png' />
-	<title>Discord App Clone</title>
-	<style type='text/css'>
+<html>
+  <head>
+    <title>Discord UI - Godot</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
 
-		body {
-			touch-action: none;
-			margin: 0;
-			border: 0 none;
-			padding: 0;
-			text-align: center;
-			background-color: black;
-			overflow: hidden;
-		}
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="title" content="Discord UI - Godot" />
+    <meta
+      name="description"
+      content="Clone of Discord's UI made using Godot Game Engine."
+    />
+    <meta name="keywords" content="discord, godot, ui, game, pro ui" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Delano Lourenco" />
 
-		#canvas {
-			display: block;
-			margin: 0;
-			color: white;
-		}
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="Discord UI - Godot" />
+    <meta property="og:site_name" content="Discord UI - Godot" />
+    <meta property="og:url" content="https://discord-ui-godot.web.app" />
+    <meta
+      property="og:description"
+      content="Clone of Discord's UI made using Godot Game Engine."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://cdn.discordapp.com/attachments/360062738615107605/914080251502555146/DiscordClone_windows_1V7HVkM5OS.png"
+    />
 
-		#canvas:focus {
-			outline: none;
-		}
+    <!-- Twitter tags -->
+    <meta name="twitter:card" content="app" />
+    <meta name="twitter:site" content="@3ddelano" />
+    <meta name="twitter:description" content="Discord UI - Godot" />
 
-		.godot {
-			font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
-			color: #e0e0e0;
-			background-color: #3b3943;
-			background-image: linear-gradient(to bottom, #403e48, #35333c);
-			border: 1px solid #45434e;
-			box-shadow: 0 0 1px 1px #2f2d35;
-		}
+    <!-- Favicon setup -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="theme-color" content="#5865F2" />
 
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        touch-action: none;
+        margin: 0;
+        padding: 0;
+        border: 0 none;
+        overflow: hidden;
+        text-align: center;
+        font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #fff;
+        background-color: #202225;
+      }
+      #canvas {
+        display: block;
+        margin: 0;
+        color: white;
+      }
+      #canvas:focus {
+        outline: none;
+      }
+      #status {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+      }
 
-		/* Status display
-		 * ============== */
+      #status-progressbar {
+        width: 200px;
+        background-color: #5865f2;
+        border-radius: 6px;
+        padding: 2px;
+        visibility: visible;
+      }
 
-		#status {
-			position: absolute;
-			left: 0;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			/* don't consume click events - make children visible explicitly */
-			visibility: hidden;
-		}
+      #status-progressbar-inner {
+        background-color: #ffffff;
+        width: 2%;
+        height: 4px;
+        border-radius: 3px;
+        transition: width 0.5s ease-in-out;
+      }
 
-		#status-progress {
-			width: 366px;
-			height: 7px;
-			background-color: #38363A;
-			border: 1px solid #444246;
-			padding: 1px;
-			box-shadow: 0 0 2px 1px #1B1C22;
-			border-radius: 2px;
-			visibility: visible;
-		}
+      #status-spinner {
+        border: 3px solid #f6f6f6;
+        border-top: 3px solid #5865f2;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        animation: spin 2s linear infinite;
+        visibility: visible;
+      }
 
-		@media only screen and (orientation:portrait) {
-			#status-progress {
-				width: 61.8%;
-			}
-		}
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
-		#status-progress-inner {
-			height: 100%;
-			width: 0;
-			box-sizing: border-box;
-			transition: width 0.5s linear;
-			background-color: #202020;
-			border: 1px solid #222223;
-			box-shadow: 0 0 1px 1px #27282E;
-			border-radius: 3px;
-		}
+      #status-notice {
+        color: #df4759;
+        background-color: #f6f6f6;
+        font-weight: bold;
+        padding: 8px;
+        border-radius: 4px;
+        visibility: visible;
+      }
+    </style>
+  </head>
 
-		#status-indeterminate {
-			visibility: visible;
-			position: relative;
-		}
+  <body>
+    <canvas id="canvas">
+      HTML5 canvas appears to be unsupported in the current browser.<br />
+      Please try updating or use a different browser.
+    </canvas>
+    <div id="status">
+      <h1 style="margin-bottom: 16px; visibility: visible">Discord UI Godot</h1>
+      <!-- Indeterminate progress -->
+      <div id="status-spinner" style="display: none"></div>
+      <!-- Determinate progress -->
+      <div id="status-progressbar" style="display: none">
+        <div id="status-progressbar-inner"></div>
+      </div>
+      <!--- Notice -->
+      <p id="status-notice" style="display: none">This is a message</p>
+    </div>
+    <script src="$GODOT_URL"></script>
+    <script type="text/javascript">
+      let engine = new Engine($GODOT_CONFIG);
 
-		#status-indeterminate > div {
-			width: 4.5px;
-			height: 0;
-			border-style: solid;
-			border-width: 9px 3px 0 3px;
-			border-color: #2b2b2b transparent transparent transparent;
-			transform-origin: center 21px;
-			position: absolute;
-		}
+      (function () {
+        const INDETERMINATE_STATUS_STEP_MS = 100;
+        let statusDiv = document.getElementById("status");
+        let statusProgress = document.getElementById("status-progressbar");
+        let statusProgressInner = document.getElementById(
+          "status-progressbar-inner"
+        );
+        let statusIndeterminate = document.getElementById("status-spinner");
+        let statusNotice = document.getElementById("status-notice");
 
-		#status-indeterminate > div:nth-child(1) { transform: rotate( 22.5deg); }
-		#status-indeterminate > div:nth-child(2) { transform: rotate( 67.5deg); }
-		#status-indeterminate > div:nth-child(3) { transform: rotate(112.5deg); }
-		#status-indeterminate > div:nth-child(4) { transform: rotate(157.5deg); }
-		#status-indeterminate > div:nth-child(5) { transform: rotate(202.5deg); }
-		#status-indeterminate > div:nth-child(6) { transform: rotate(247.5deg); }
-		#status-indeterminate > div:nth-child(7) { transform: rotate(292.5deg); }
-		#status-indeterminate > div:nth-child(8) { transform: rotate(337.5deg); }
+        let initializing = true;
+        let statusMode = "hidden";
 
-		#status-notice {
-			margin: 0 100px;
-			line-height: 1.3;
-			visibility: visible;
-			padding: 4px 6px;
-			visibility: visible;
-		}
-	</style>
+        function setStatusNotice(text) {
+          while (statusNotice.lastChild) {
+            statusNotice.removeChild(statusNotice.lastChild);
+          }
+          let lines = text.split("\n");
+          lines.forEach((line) => {
+            statusNotice.appendChild(document.createTextNode(line));
+            statusNotice.appendChild(document.createElement("br"));
+          });
+        }
 
-</head>
-<body>
-	<canvas id='canvas'>
-		HTML5 canvas appears to be unsupported in the current browser.<br />
-		Please try updating or use a different browser.
-	</canvas>
-	<div id='status'>
-		<div id='status-progress' style='display: none;' oncontextmenu='event.preventDefault();'><div id ='status-progress-inner'></div></div>
-		<div id='status-indeterminate' style='display: none;' oncontextmenu='event.preventDefault();'>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-		<div id='status-notice' class='godot' style='display: none;'></div>
-	</div>
+        function setStatusMode(mode) {
+          if (statusMode === mode || !initializing) return;
+          [statusProgress, statusIndeterminate, statusNotice].forEach(
+            (elem) => {
+              elem.style.display = "none";
+            }
+          );
+          switch (mode) {
+            case "progress":
+              statusProgress.style.display = "block";
+              break;
+            case "indeterminate":
+              statusIndeterminate.style.display = "block";
+              break;
+            case "notice":
+              statusNotice.style.display = "block";
+              break;
+            case "hidden":
+              break;
+            default:
+              throw new Error("Invalid status mode");
+          }
+          statusMode = mode;
+        }
 
-	<script type='text/javascript' src='index.js'></script>
-	<script type='text/javascript'>//<![CDATA[
-
-		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":415616,"index.wasm":1273120},"gdnativeLibs":[]};
-		var engine = new Engine(GODOT_CONFIG);
-
-		(function() {
-			const INDETERMINATE_STATUS_STEP_MS = 100;
-			var statusProgress = document.getElementById('status-progress');
-			var statusProgressInner = document.getElementById('status-progress-inner');
-			var statusIndeterminate = document.getElementById('status-indeterminate');
-			var statusNotice = document.getElementById('status-notice');
-
-			var initializing = true;
-			var statusMode = 'hidden';
-
-			var animationCallbacks = [];
-			function animate(time) {
-				animationCallbacks.forEach(callback => callback(time));
-				requestAnimationFrame(animate);
-			}
-			requestAnimationFrame(animate);
-
-			function setStatusMode(mode) {
-
-				if (statusMode === mode || !initializing)
-					return;
-				[statusProgress, statusIndeterminate, statusNotice].forEach(elem => {
-					elem.style.display = 'none';
-				});
-				animationCallbacks = animationCallbacks.filter(function(value) {
-					return (value != animateStatusIndeterminate);
-				});
-				switch (mode) {
-					case 'progress':
-						statusProgress.style.display = 'block';
-						break;
-					case 'indeterminate':
-						statusIndeterminate.style.display = 'block';
-						animationCallbacks.push(animateStatusIndeterminate);
-						break;
-					case 'notice':
-						statusNotice.style.display = 'block';
-						break;
-					case 'hidden':
-						break;
-					default:
-						throw new Error('Invalid status mode');
-				}
-				statusMode = mode;
-			}
-
-			function animateStatusIndeterminate(ms) {
-				var i = Math.floor(ms / INDETERMINATE_STATUS_STEP_MS % 8);
-				if (statusIndeterminate.children[i].style.borderTopColor == '') {
-					Array.prototype.slice.call(statusIndeterminate.children).forEach(child => {
-						child.style.borderTopColor = '';
-					});
-					statusIndeterminate.children[i].style.borderTopColor = '#dfdfdf';
-				}
-			}
-
-			function setStatusNotice(text) {
-				while (statusNotice.lastChild) {
-					statusNotice.removeChild(statusNotice.lastChild);
-				}
-				var lines = text.split('\n');
-				lines.forEach((line) => {
-					statusNotice.appendChild(document.createTextNode(line));
-					statusNotice.appendChild(document.createElement('br'));
-				});
-			};
-
-			function displayFailureNotice(err) {
-				var msg = err.message || err;
-				console.error(msg);
-				setStatusNotice(msg);
-				setStatusMode('notice');
-				initializing = false;
-			};
-
-			if (!Engine.isWebGLAvailable()) {
-				displayFailureNotice('WebGL not available');
-			} else {
-				setStatusMode('indeterminate');
-				engine.startGame({
-					'onProgress': function (current, total) {
-						if (total > 0) {
-							statusProgressInner.style.width = current/total * 100 + '%';
-							setStatusMode('progress');
-							if (current === total) {
-								// wait for progress bar animation
-								setTimeout(() => {
-									setStatusMode('indeterminate');
-								}, 500);
-							}
-						} else {
-							setStatusMode('indeterminate');
-						}
-					},
-				}).then(() => {
-					setStatusMode('hidden');
-					initializing = false;
-				}, displayFailureNotice);
-			}
-		})();
-	//]]></script>
-</body>
+        function displayFailureNotice(err) {
+          let msg = err.message || err;
+          console.error(msg);
+          setStatusNotice(msg);
+          setStatusMode("notice");
+          initializing = false;
+        }
+        if (!Engine.isWebGLAvailable()) {
+          displayFailureNotice("WebGL not available");
+        } else {
+          setStatusMode("indeterminate");
+          engine
+            .startGame({
+              onProgress: function (current, total) {
+                if (total > 0) {
+                  statusProgressInner.style.width =
+                    (current / total) * 100 + "%";
+                  setStatusMode("progress");
+                  if (current === total) {
+                    // wait for progress bar animation
+                    setTimeout(() => {
+                      setStatusMode("indeterminate");
+                    }, 500);
+                  }
+                } else {
+                  setStatusMode("indeterminate");
+                }
+              },
+            })
+            .then(() => {
+              setStatusMode("hidden");
+              statusDiv.style.display = "none";
+              initializing = false;
+            }, displayFailureNotice);
+        }
+      })();
+    </script>
+  </body>
 </html>
-

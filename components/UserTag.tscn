@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Tag" type="Label"]
+margin_right = 62.0
+margin_bottom = 20.0
+size_flags_vertical = 8
+text = "3ddelano"
+max_lines_visible = 1

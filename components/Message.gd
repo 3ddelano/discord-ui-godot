@@ -36,10 +36,10 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	_hover_panel.visible = false
 
-func set_user(p_user: UserModel) -> void:
-	avatar.texture = p_user.avatar
-	tag.text = p_user.tag
-	if not p_user.bot:
+func set_user(model: UserModel) -> void:
+	avatar.texture = model.avatar
+	tag.text = model.username + "#" + model.discriminator
+	if not model.bot:
 		bot.queue_free()
 
 func set_content(p_content) -> void:
