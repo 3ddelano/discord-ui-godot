@@ -65,8 +65,13 @@ Signals="*res://scripts/Signals.gd"
 window/size/width=1174
 window/size/height=626
 window/size/borderless=true
+window/dpi/allow_hidpi=true
 window/per_pixel_transparency/allowed=true
 window/per_pixel_transparency/enabled=true
+
+[gui]
+
+theme/use_hidpi=true
 
 [physics]
 

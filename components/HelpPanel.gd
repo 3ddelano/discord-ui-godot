@@ -18,6 +18,7 @@ func _ready() -> void:
 	panel.rect_pivot_offset = panel.rect_size / 2
 
 	Signals.connect("show_help", self, "_on_show_help")
+	visible = true
 
 func _on_close_button_pressed():
 	tween.interpolate_property(panel, "rect_scale", Vector2(1, 1), Vector2(0.8, 0.8), 0.05, Tween.TRANS_LINEAR, Tween.EASE_IN)

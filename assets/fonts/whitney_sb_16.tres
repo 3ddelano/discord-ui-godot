@@ -3,5 +3,6 @@
 [ext_resource path="res://assets/fonts/whitneysemibold.otf" type="DynamicFontData" id=1]
 
 [resource]
+use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )

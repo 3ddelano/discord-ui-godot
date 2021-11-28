@@ -1,0 +1,225 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/fonts/whitney_r_14.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/StyleBoxEmpty.tres" type="StyleBox" id=2]
+[ext_resource path="res://assets/icons/multiply.svg" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/whitney_b_20.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/fonts/whitney_r_12.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/icons/youtube.svg" type="Texture" id=6]
+[ext_resource path="res://assets/icons/github.svg" type="Texture" id=7]
+[ext_resource path="res://components/ChannelBarButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://components/HelpPanel.gd" type="Script" id=9]
+[ext_resource path="res://components/ChannelBarButton.gd" type="Script" id=10]
+[ext_resource path="res://assets/custom_theme.tres" type="Theme" id=11]
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0, 0, 0, 0.780392 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.211765, 0.223529, 0.247059, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 1, 1, 1, 0.0588235 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+
+[node name="HelpPanel" type="PanelContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 21 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_panel_path = NodePath("CC/Panel")
+_close_button_path = NodePath("CC/Panel/MC/VB/HB/CloseButton/Button")
+_github_button_path = NodePath("CC/Panel/MC/VB/HB2/HB/GithubButton")
+_youtube_button_path = NodePath("CC/Panel/MC/VB/HB2/HB/YoutubeButton")
+
+[node name="Button" type="Button" parent="."]
+margin_right = 1174.0
+margin_bottom = 598.0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+
+[node name="CC" type="CenterContainer" parent="."]
+margin_right = 1174.0
+margin_bottom = 598.0
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="CC"]
+margin_left = 427.0
+margin_top = 224.0
+margin_right = 747.0
+margin_bottom = 374.0
+rect_min_size = Vector2( 320, 150 )
+custom_styles/panel = SubResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MC" type="MarginContainer" parent="CC/Panel"]
+margin_right = 320.0
+margin_bottom = 202.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 12
+custom_constants/margin_left = 18
+custom_constants/margin_bottom = 18
+
+[node name="VB" type="VBoxContainer" parent="CC/Panel/MC"]
+margin_left = 18.0
+margin_top = 12.0
+margin_right = 304.0
+margin_bottom = 184.0
+custom_constants/separation = 16
+
+[node name="HB" type="HBoxContainer" parent="CC/Panel/MC/VB"]
+margin_right = 286.0
+margin_bottom = 36.0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="CC/Panel/MC/VB/HB"]
+margin_top = 6.0
+margin_right = 40.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 4 )
+text = "Help"
+
+[node name="HSeparator" type="HSeparator" parent="CC/Panel/MC/VB/HB"]
+margin_left = 40.0
+margin_right = 250.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="PanelContainer" parent="CC/Panel/MC/VB/HB"]
+margin_left = 250.0
+margin_right = 286.0
+margin_bottom = 36.0
+custom_styles/panel = SubResource( 23 )
+
+[node name="Button" type="Button" parent="CC/Panel/MC/VB/HB/CloseButton"]
+margin_right = 36.0
+margin_bottom = 36.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 24 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
+shortcut_in_tooltip = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MC" type="MarginContainer" parent="CC/Panel/MC/VB/HB/CloseButton"]
+margin_right = 36.0
+margin_bottom = 36.0
+mouse_filter = 2
+custom_constants/margin_right = 6
+custom_constants/margin_top = 6
+custom_constants/margin_left = 6
+custom_constants/margin_bottom = 6
+
+[node name="CloseIcon" type="TextureRect" parent="CC/Panel/MC/VB/HB/CloseButton/MC"]
+self_modulate = Color( 0.8, 0.8, 0.8, 1 )
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 30.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 24, 24 )
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="VB" type="VBoxContainer" parent="CC/Panel/MC/VB"]
+margin_top = 52.0
+margin_right = 286.0
+margin_bottom = 124.0
+custom_constants/separation = 12
+
+[node name="Label2" type="Label" parent="CC/Panel/MC/VB/VB"]
+margin_right = 286.0
+margin_bottom = 43.0
+text = "A clone of Discord's UI made in the Godot Game Engine."
+autowrap = true
+
+[node name="Label3" type="Label" parent="CC/Panel/MC/VB/VB"]
+margin_top = 55.0
+margin_right = 286.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 1 )
+text = "This project is not affiliated with Discord Inc."
+autowrap = true
+
+[node name="HB2" type="HBoxContainer" parent="CC/Panel/MC/VB"]
+margin_top = 140.0
+margin_right = 286.0
+margin_bottom = 172.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CC/Panel/MC/VB/HB2"]
+margin_top = 6.0
+margin_right = 83.0
+margin_bottom = 26.0
+text = "By 3ddelano"
+
+[node name="HB" type="HBoxContainer" parent="CC/Panel/MC/VB/HB2"]
+margin_left = 210.0
+margin_right = 286.0
+margin_bottom = 32.0
+mouse_filter = 2
+size_flags_horizontal = 10
+custom_constants/separation = 12
+
+[node name="GithubButton" type="MarginContainer" parent="CC/Panel/MC/VB/HB2/HB" instance=ExtResource( 8 )]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme = ExtResource( 11 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"tooltip_text": "Test tooltip"
+}
+_icon_texture = ExtResource( 7 )
+
+[node name="YoutubeButton" type="MarginContainer" parent="CC/Panel/MC/VB/HB2/HB" instance=ExtResource( 8 )]
+margin_left = 44.0
+margin_right = 76.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme = ExtResource( 11 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"tooltip_text": "Test tooltip"
+}
+_icon_texture = ExtResource( 6 )
+
+[node name="Tween" type="Tween" parent="."]
