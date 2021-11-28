@@ -2,7 +2,7 @@ extends Node
 
 var users = {}
 var guilds = {}
-var me_user = {}
+var me_user
 
 ##
 # Not implemented

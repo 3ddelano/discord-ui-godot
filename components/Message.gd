@@ -3,14 +3,14 @@ extends PanelContainer
 var model: MessageModel
 
 export (NodePath) var _avatar_path
-export (NodePath) var _tag_path
+export (NodePath) var _username_path
 export (NodePath) var _bot_path
 export (NodePath) var _timestamp_path
 export (NodePath) var _content_path
 export (NodePath) var _hover_panel_path
 
 onready var avatar = get_node(_avatar_path) as TextureRect
-onready var tag = get_node(_tag_path) as Label
+onready var username = get_node(_username_path) as Label
 onready var bot = get_node(_bot_path) as PanelContainer
 onready var timestamp = get_node(_timestamp_path) as Label
 onready var content = get_node(_content_path) #as ExpandableTextEdit
@@ -38,7 +38,7 @@ func _on_mouse_exited():
 
 func set_user(model: UserModel) -> void:
 	avatar.texture = model.avatar
-	tag.text = model.username + "#" + model.discriminator
+	username.text = model.username
 	if not model.bot:
 		bot.queue_free()
 

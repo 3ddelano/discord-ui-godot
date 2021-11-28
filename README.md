@@ -6,7 +6,7 @@ Discord UI - Godot
 
 <img alt="Godot3" src="https://img.shields.io/badge/-Godot 3.x-478CBF?style=for-the-badge&logo=godotengine&logoWidth=20&logoColor=white" />
 
-<img alt="Discord UI App" src="https://cdn.discordapp.com/attachments/360062738615107605/914080251502555146/DiscordClone_windows_1V7HVkM5OS.png"/>
+<img alt="Discord UI App" src="https://cdn.discordapp.com/attachments/360062738615107605/914439454867992616/unknown.png"/>
 
 Features
 --------------
@@ -16,10 +16,10 @@ Features
 - Multi directional tooltips
 - Smooth hover animations and micro-animations
 - Mock data for testing scrolling
-- Functional Send Message text area
+- Functional Send Message
 - Message grouping
 - Redux-like state management
-- Randomly chooses one of 3 users as the current user
+- Channel grouping and folding / unfolding
 
 
 Getting Started
@@ -38,10 +38,10 @@ Showcase
 <img alt="Sending Messages and Message Grouping" src="https://cdn.discordapp.com/attachments/360062738615107605/914082184535617566/DVC6tGBzU9.gif">
 
 ## Guilds Navigation
-<img alt="My Guilds" src="https://cdn.discordapp.com/attachments/360062738615107605/914081495088504832/iQlpv7dlUH.gif"/>
+<img alt="My Guilds" src="https://cdn.discordapp.com/attachments/360062738615107605/914439771521159198/azqMpI7hAX.gif"/>
 
 ## Resizing
-<img alt="Resizing feature" src="https://cdn.discordapp.com/attachments/360062738615107605/914080636438970378/dvRsGQmiKv.gif"/>
+<img alt="Resizing feature" src="https://cdn.discordapp.com/attachments/360062738615107605/914440123519746088/Kk0J3QnLET.gif"/>
 
 ## Tooltips
 <img src="https://cdn.discordapp.com/attachments/360062738615107605/914081520925437962/PmhO23MyTo.gif"/>
@@ -55,4 +55,6 @@ This project is not affiliated with Discord Inc. The assets were taken from the 
 <a href="https://www.buymeacoffee.com/3ddelano" target="_blank"><img height="41" width="174" src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" width="150" ></a>
 
 ### Support Server
-For doubts / help / bugs / problems / suggestions: [3ddelano Cafe](https://discord.gg/FZY9TqW)
+For suggestions / bugs, join the Discord: [3ddelano Cafe](https://discord.gg/FZY9TqW)
+
+Pull requests are welcome!

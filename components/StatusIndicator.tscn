@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://components/StatusIndicator.gd" type="Script" id=1]
 [ext_resource path="res://components/UserStatus/DND.tscn" type="PackedScene" id=2]
 [ext_resource path="res://components/UserStatus/INVISIBLE.tscn" type="PackedScene" id=3]
 [ext_resource path="res://components/UserStatus/IDLE.tscn" type="PackedScene" id=4]
@@ -14,7 +13,6 @@ margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

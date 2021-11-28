@@ -14,8 +14,8 @@ var guilds = [
 		"icon": preload("res://assets/guild_icons/306063087641821185.webp")
 	},
 	{
-		"name": "GDD 2021",
-		"icon": preload("res://assets/guild_icons/572843650896101392.webp")
+		"name": "Saiponath's Games",
+		"icon": preload("res://assets/guild_icons/661565824384892928.webp")
 	}
 ]
 
@@ -42,3 +42,9 @@ func _load_guilds():
 
 			if k == 0:
 				Cache.guilds[model.id] = guild
+
+	# The selected guild will be the first guild in the list
+	var selected_guild = _guilds_vb.get_child(2)
+	var selected_indicator = $MC/RR/SelectedGuildIndicator
+	selected_indicator.rect_global_position.y = selected_guild.rect_global_position.y + (selected_guild.rect_size.y / 2)
+	selected_indicator.rect_global_position.y -= selected_indicator.rect_size.y / 2

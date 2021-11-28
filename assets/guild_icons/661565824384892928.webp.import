@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/661565824384892928.webp-a30e0a6ead2e0922ef0b709ceb750fc8.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/guild_icons/661565824384892928.webp"
+dest_files=[ "res://.import/661565824384892928.webp-a30e0a6ead2e0922ef0b709ceb750fc8.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

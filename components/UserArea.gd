@@ -6,7 +6,7 @@ onready var settings_button = $MC/HB/Buttons/SettingsButton.get_button()
 
 
 onready var avatar = $MC/HB/AvatarIcon
-onready var username = $MC/HB/VB/Tag
+onready var username = $MC/HB/VB/Username
 onready var discriminator = $MC/HB/VB/Discriminator
 
 func _ready() -> void:
@@ -28,5 +28,6 @@ func _on_app_ready():
 	var model = Cache.me_user.model
 
 	avatar.texture = model.avatar
-	username = model.username
-	discriminator = model.discriminator
+	avatar.set_status(model.status)
+	username.text = model.username
+	discriminator.text = "#" + model.discriminator

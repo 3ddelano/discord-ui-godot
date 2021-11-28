@@ -1,19 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://components/ChannelsList.gd" type="Script" id=1]
-[ext_resource path="res://components/ChannelsListChannel.gd" type="Script" id=2]
+[ext_resource path="res://components/ChannelsListChannelGroup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://components/ChannelsListChannel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/MembersListTheme.tres" type="Theme" id=4]
-[ext_resource path="res://assets/custom_theme.tres" type="Theme" id=5]
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.184314, 0.192157, 0.211765, 1 )
 border_width_top = 2
 border_color = Color( 0.137255, 0.145098, 0.160784, 1 )
 border_blend = true
 anti_aliasing = false
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="ChannelsList" type="PanelContainer"]
 margin_top = 64.0
@@ -22,8 +21,11 @@ margin_bottom = 598.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 4 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 _channels_vb_path = NodePath("SC/MC/VB")
 
 [node name="SC" type="ScrollContainer" parent="."]
@@ -35,7 +37,7 @@ scroll_horizontal_enabled = false
 
 [node name="MC" type="MarginContainer" parent="SC"]
 margin_right = 295.0
-margin_bottom = 726.0
+margin_bottom = 762.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_top = 8
@@ -45,246 +47,130 @@ custom_constants/margin_left = 8
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 295.0
-margin_bottom = 726.0
+margin_bottom = 762.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 2
 
-[node name="ChannelsListChannel" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannelGroup" parent="SC/MC/VB" instance=ExtResource( 2 )]
 margin_right = 287.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ChannelsListChannel2" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 36.0
 margin_right = 287.0
 margin_bottom = 70.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel3" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel2" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 72.0
 margin_right = 287.0
 margin_bottom = 106.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel4" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel3" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 108.0
 margin_right = 287.0
 margin_bottom = 142.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel5" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel4" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 144.0
 margin_right = 287.0
 margin_bottom = 178.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel6" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel5" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 180.0
 margin_right = 287.0
 margin_bottom = 214.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel7" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel6" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 216.0
 margin_right = 287.0
 margin_bottom = 250.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel8" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel7" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 252.0
 margin_right = 287.0
 margin_bottom = 286.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel9" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel8" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 288.0
 margin_right = 287.0
 margin_bottom = 322.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel10" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel9" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 324.0
 margin_right = 287.0
 margin_bottom = 358.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel11" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel10" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 360.0
 margin_right = 287.0
 margin_bottom = 394.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel12" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel11" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 396.0
 margin_right = 287.0
 margin_bottom = 430.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel13" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel12" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 432.0
 margin_right = 287.0
 margin_bottom = 466.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel14" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel13" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 468.0
 margin_right = 287.0
 margin_bottom = 502.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel15" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel14" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 504.0
 margin_right = 287.0
 margin_bottom = 538.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel16" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel15" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 540.0
 margin_right = 287.0
 margin_bottom = 574.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel17" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel16" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 576.0
 margin_right = 287.0
 margin_bottom = 610.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel18" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel17" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 612.0
 margin_right = 287.0
 margin_bottom = 646.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel19" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel18" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 648.0
 margin_right = 287.0
 margin_bottom = 682.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
 
-[node name="ChannelsListChannel20" type="PanelContainer" parent="SC/MC/VB" instance=ExtResource( 3 )]
+[node name="ChannelsListChannel19" parent="SC/MC/VB" instance=ExtResource( 3 )]
 margin_top = 684.0
 margin_right = 287.0
 margin_bottom = 718.0
-rect_min_size = Vector2( 200, 34 )
-theme = ExtResource( 5 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/panel = SubResource( 2 )
+
+[node name="ChannelsListChannel20" parent="SC/MC/VB" instance=ExtResource( 3 )]
+margin_top = 720.0
+margin_right = 287.0
+margin_bottom = 754.0
+custom_styles/panel = SubResource( 2 )

@@ -33,7 +33,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 _avatar_path = NodePath("MC/Avatar")
-_tag_path = NodePath("MC/MC/VB/Header/Tag")
+_username_path = NodePath("MC/MC/VB/Header/Username")
 _bot_path = NodePath("MC/MC/VB/Header/BotIndicator")
 _timestamp_path = NodePath("MC/MC/VB/Header/MessageTimestamp")
 _content_path = NodePath("MC/MC/VB/MessageContent")
@@ -90,25 +90,27 @@ margin_bottom = 22.0
 mouse_filter = 2
 custom_constants/separation = 7
 
-[node name="Tag" type="Label" parent="MC/MC/VB/Header"]
-margin_right = 125.0
+[node name="Username" type="Label" parent="MC/MC/VB/Header"]
+margin_right = 72.0
 margin_bottom = 22.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 3 )
-text = "3ddelano#6033"
+text = "3ddelano"
 
 [node name="BotIndicator" parent="MC/MC/VB/Header" instance=ExtResource( 6 )]
-margin_left = 132.0
+margin_left = 79.0
 margin_top = 4.0
-margin_right = 157.0
+margin_right = 104.0
 margin_bottom = 18.0
 mouse_filter = 2
 size_flags_vertical = 4
 custom_styles/panel = SubResource( 3 )
 
 [node name="MessageTimestamp" parent="MC/MC/VB/Header" instance=ExtResource( 10 )]
+margin_left = 111.0
+margin_right = 212.0
 
 [node name="MessageContent" type="TextEdit" parent="MC/MC/VB"]
 margin_top = 22.0

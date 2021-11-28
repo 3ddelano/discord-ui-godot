@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/572843650896101392.webp-81d62ff4fb796486c5a72e30501c6a72.stex"
+path="res://.import/435394854017826817.webp-64deea6af90cb0ad7687130012bcfade.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/guild_icons/572843650896101392.webp"
-dest_files=[ "res://.import/572843650896101392.webp-81d62ff4fb796486c5a72e30501c6a72.stex" ]
+source_file="res://assets/avatar_icons/435394854017826817.webp"
+dest_files=[ "res://.import/435394854017826817.webp-64deea6af90cb0ad7687130012bcfade.stex" ]
 
 [params]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://materials/GuildIconButtonMaterial.tres" type="Material" id=1]
 [ext_resource path="res://components/StatusIndicator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/avatar_icons/321233875776962560.webp" type="Texture" id=3]
+[ext_resource path="res://components/StatusIndicator.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -15,6 +16,7 @@ mouse_filter = 2
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -27,3 +29,4 @@ anchor_bottom = 1.0
 margin_left = -16.0
 margin_top = -16.0
 custom_styles/panel = SubResource( 1 )
+script = null

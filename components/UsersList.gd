@@ -29,6 +29,14 @@ var users = [
 		"status": "IDLE",
 		"bot": true
 	},
+	{
+		"avatar": preload("res://assets/avatar_icons/435394854017826817.webp"),
+		"username": "Sairam",
+		"discriminator": "1724",
+		"activity": "Playing Openskycity",
+		"status": "INVISIBLE",
+		"bot": false
+	},
 ]
 
 
@@ -44,7 +52,7 @@ func _load_users():
 	for child in _users_vb.get_children():
 		child.queue_free()
 
-	for k in range(5):
+	for k in range(4):
 		for i in range(users.size()):
 			var user_data = users[i]
 

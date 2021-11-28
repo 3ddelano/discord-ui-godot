@@ -12,7 +12,6 @@ onready var tag = get_node(_tag_path) as Label
 onready var avatar = get_node(_avatar_path) as TextureRect
 onready var bot = get_node(_bot_path) as PanelContainer
 onready var activity = get_node(_activity_path) as Label
-onready var status = get_node(_status_path) as Panel
 
 func set_avatar(p_texture: Texture) -> void:
 	avatar.texture = p_texture
@@ -29,7 +28,7 @@ func set_bot(p_bot: bool) -> void:
 		bot.queue_free()
 
 func set_status(p_status: String):
-	status.set_status(p_status)
+	avatar.set_status(p_status)
 
 func from_model(p_model: UserModel):
 	model = p_model

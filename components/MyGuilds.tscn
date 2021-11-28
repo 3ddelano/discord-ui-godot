@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://components/MyGuilds.gd" type="Script" id=1]
 [ext_resource path="res://components/GuildIconButton.tscn" type="PackedScene" id=2]
@@ -69,6 +69,11 @@ grow_end = -12.0
 [sub_resource type="StyleBoxEmpty" id=17]
 
 [sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
 
 [node name="MyGuildsSC" type="ScrollContainer"]
 margin_right = 90.0
@@ -255,3 +260,22 @@ custom_styles/normal = SubResource( 18 )
 margin_top = 764.0
 margin_right = 90.0
 margin_bottom = 824.0
+
+[node name="RR" type="ReferenceRect" parent="MC"]
+margin_top = 4.0
+margin_right = 90.0
+margin_bottom = 828.0
+mouse_filter = 2
+
+[node name="SelectedGuildIndicator" type="Panel" parent="MC/RR"]
+margin_top = 150.0
+margin_right = 5.0
+margin_bottom = 198.0
+rect_min_size = Vector2( 5, 48 )
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": true
+}

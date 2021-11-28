@@ -147,14 +147,14 @@ tracks/0/keys = {
 [sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0, 0, 0, 0.780392 )
 
-[sub_resource type="StyleBoxFlat" id=24]
+[sub_resource type="StyleBoxFlat" id=22]
 bg_color = Color( 0.211765, 0.223529, 0.247059, 1 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id=22]
+[sub_resource type="StyleBoxFlat" id=23]
 bg_color = Color( 0, 0, 0, 0 )
 corner_radius_top_left = 50
 corner_radius_top_right = 50
@@ -163,7 +163,7 @@ corner_radius_bottom_left = 50
 corner_detail = 20
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=25]
+[sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 1, 1, 1, 0.0588235 )
 corner_radius_top_left = 50
 corner_radius_top_right = 50
@@ -171,7 +171,7 @@ corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 corner_detail = 20
 
-[sub_resource type="StyleBoxFlat" id=23]
+[sub_resource type="StyleBoxFlat" id=25]
 draw_center = false
 border_width_left = 1
 border_width_top = 1
@@ -675,11 +675,10 @@ text = "FPS: 60"
 visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -12.0
+margin_top = 9.384
 margin_right = 4.0
-margin_bottom = 12.0
+margin_bottom = 33.384
 rect_min_size = Vector2( 4, 24 )
-rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 0, 12 )
 mouse_filter = 2
 size_flags_horizontal = 0
@@ -695,7 +694,6 @@ anims/hide = SubResource( 19 )
 anims/show = SubResource( 20 )
 
 [node name="HelpPanel" type="PanelContainer" parent="VB/MC/Overlays"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 21 )
@@ -703,23 +701,37 @@ script = ExtResource( 33 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+_panel_path = NodePath("CC/Panel")
+_close_button_path = NodePath("CC/Panel/MC/VB/HB/CloseButton/Button")
+_github_button_path = NodePath("CC/Panel/MC/VB/HB2/HB/GithubButton")
+_youtube_button_path = NodePath("CC/Panel/MC/VB/HB2/HB/YoutubeButton")
+
+[node name="Button" type="Button" parent="VB/MC/Overlays/HelpPanel"]
+margin_right = 1174.0
+margin_bottom = 598.0
+custom_styles/hover = ExtResource( 17 )
+custom_styles/pressed = ExtResource( 17 )
+custom_styles/focus = ExtResource( 17 )
+custom_styles/disabled = ExtResource( 17 )
+custom_styles/normal = ExtResource( 17 )
 
 [node name="CC" type="CenterContainer" parent="VB/MC/Overlays/HelpPanel"]
 margin_right = 1174.0
 margin_bottom = 598.0
+mouse_filter = 2
 
-[node name="PC" type="PanelContainer" parent="VB/MC/Overlays/HelpPanel/CC"]
+[node name="Panel" type="PanelContainer" parent="VB/MC/Overlays/HelpPanel/CC"]
 margin_left = 427.0
-margin_top = 224.0
+margin_top = 198.0
 margin_right = 747.0
-margin_bottom = 374.0
+margin_bottom = 400.0
 rect_min_size = Vector2( 320, 150 )
-custom_styles/panel = SubResource( 24 )
+custom_styles/panel = SubResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MC" type="MarginContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC"]
+[node name="MC" type="MarginContainer" parent="VB/MC/Overlays/HelpPanel/CC/Panel"]
 margin_right = 320.0
 margin_bottom = 202.0
 custom_constants/margin_right = 16
@@ -727,42 +739,42 @@ custom_constants/margin_top = 12
 custom_constants/margin_left = 18
 custom_constants/margin_bottom = 18
 
-[node name="VB" type="VBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC"]
+[node name="VB" type="VBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC"]
 margin_left = 18.0
 margin_top = 12.0
 margin_right = 304.0
 margin_bottom = 184.0
 custom_constants/separation = 16
 
-[node name="HB" type="HBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB"]
+[node name="HB" type="HBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB"]
 margin_right = 286.0
 margin_bottom = 36.0
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB"]
+[node name="Label" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/HB"]
 margin_top = 6.0
 margin_right = 40.0
 margin_bottom = 30.0
 custom_fonts/font = ExtResource( 8 )
 text = "Help"
 
-[node name="HSeparator" type="HSeparator" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB"]
+[node name="HSeparator" type="HSeparator" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/HB"]
 margin_left = 40.0
 margin_right = 250.0
 margin_bottom = 36.0
 size_flags_horizontal = 3
 
-[node name="CloseButton" type="PanelContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB"]
+[node name="CloseButton" type="PanelContainer" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/HB"]
 margin_left = 250.0
 margin_right = 286.0
 margin_bottom = 36.0
-custom_styles/panel = SubResource( 22 )
+custom_styles/panel = SubResource( 23 )
 
-[node name="Button" type="Button" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB/CloseButton"]
+[node name="Button" type="Button" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/HB/CloseButton"]
 margin_right = 36.0
 margin_bottom = 36.0
 mouse_default_cursor_shape = 2
-custom_styles/hover = SubResource( 25 )
+custom_styles/hover = SubResource( 24 )
 custom_styles/pressed = ExtResource( 17 )
 custom_styles/focus = ExtResource( 17 )
 custom_styles/disabled = ExtResource( 17 )
@@ -773,7 +785,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MC" type="MarginContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB/CloseButton"]
+[node name="MC" type="MarginContainer" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/HB/CloseButton"]
 margin_right = 36.0
 margin_bottom = 36.0
 mouse_filter = 2
@@ -782,7 +794,7 @@ custom_constants/margin_top = 6
 custom_constants/margin_left = 6
 custom_constants/margin_bottom = 6
 
-[node name="CloseIcon" type="TextureRect" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB/CloseButton/MC"]
+[node name="CloseIcon" type="TextureRect" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/HB/CloseButton/MC"]
 self_modulate = Color( 0.8, 0.8, 0.8, 1 )
 margin_left = 6.0
 margin_top = 6.0
@@ -794,19 +806,19 @@ texture = ExtResource( 29 )
 expand = true
 stretch_mode = 6
 
-[node name="VB" type="VBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB"]
+[node name="VB" type="VBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB"]
 margin_top = 52.0
 margin_right = 286.0
 margin_bottom = 124.0
 custom_constants/separation = 12
 
-[node name="Label2" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/VB"]
+[node name="Label2" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/VB"]
 margin_right = 286.0
 margin_bottom = 43.0
 text = "A clone of Discord's UI made in the Godot Game Engine."
 autowrap = true
 
-[node name="Label3" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/VB"]
+[node name="Label3" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/VB"]
 margin_top = 55.0
 margin_right = 286.0
 margin_bottom = 72.0
@@ -814,19 +826,19 @@ custom_fonts/font = ExtResource( 34 )
 text = "This project is not affiliated with Discord Inc."
 autowrap = true
 
-[node name="HB2" type="HBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB"]
+[node name="HB2" type="HBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB"]
 margin_top = 140.0
 margin_right = 286.0
 margin_bottom = 172.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB2"]
+[node name="Label" type="Label" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/HB2"]
 margin_top = 6.0
 margin_right = 83.0
 margin_bottom = 26.0
 text = "By 3ddelano"
 
-[node name="HB" type="HBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB2"]
+[node name="HB" type="HBoxContainer" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/HB2"]
 margin_left = 216.0
 margin_right = 286.0
 margin_bottom = 32.0
@@ -834,24 +846,26 @@ mouse_filter = 2
 size_flags_horizontal = 10
 custom_constants/separation = 6
 
-[node name="GithubButton" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB2/HB" instance=ExtResource( 30 )]
+[node name="GithubButton" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/HB2/HB" instance=ExtResource( 30 )]
 margin_right = 32.0
 margin_bottom = 32.0
 size_flags_horizontal = 10
 _icon_texture = ExtResource( 31 )
 
-[node name="YoutubeButton" parent="VB/MC/Overlays/HelpPanel/CC/PC/MC/VB/HB2/HB" instance=ExtResource( 30 )]
+[node name="YoutubeButton" parent="VB/MC/Overlays/HelpPanel/CC/Panel/MC/VB/HB2/HB" instance=ExtResource( 30 )]
 margin_left = 38.0
 margin_right = 70.0
 margin_bottom = 32.0
 size_flags_horizontal = 10
 _icon_texture = ExtResource( 32 )
 
+[node name="Tween" type="Tween" parent="VB/MC/Overlays/HelpPanel"]
+
 [node name="Border" type="Panel" parent="."]
 margin_right = 1174.0
 margin_bottom = 626.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 23 )
+custom_styles/panel = SubResource( 25 )
 __meta__ = {
 "_edit_lock_": true
 }

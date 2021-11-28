@@ -43,7 +43,6 @@ __meta__ = {
 _tag_path = NodePath("MC/HB/VB/HB/Tag")
 _bot_path = NodePath("MC/HB/VB/HB/BotIndicator")
 _activity_path = NodePath("MC/HB/VB/Activity")
-_status_path = NodePath("MC/HB/AvatarIcon/StatusIndicator")
 _avatar_path = NodePath("MC/HB/AvatarIcon")
 
 [node name="Button" type="Button" parent="."]
