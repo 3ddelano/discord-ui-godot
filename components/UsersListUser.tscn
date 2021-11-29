@@ -40,7 +40,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-_tag_path = NodePath("MC/HB/VB/HB/Tag")
+_username_path = NodePath("MC/HB/VB/HB/Username")
 _bot_path = NodePath("MC/HB/VB/HB/BotIndicator")
 _activity_path = NodePath("MC/HB/VB/Activity")
 _avatar_path = NodePath("MC/HB/AvatarIcon")
@@ -89,7 +89,7 @@ margin_bottom = 20.0
 mouse_filter = 2
 custom_constants/separation = 4
 
-[node name="Tag" parent="MC/HB/VB/HB" instance=ExtResource( 3 )]
+[node name="Username" parent="MC/HB/VB/HB" instance=ExtResource( 3 )]
 
 [node name="BotIndicator" parent="MC/HB/VB/HB" instance=ExtResource( 5 )]
 margin_left = 66.0

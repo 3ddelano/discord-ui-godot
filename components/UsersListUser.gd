@@ -2,13 +2,12 @@ extends PanelContainer
 
 var model: UserModel
 
-export (NodePath) var _tag_path
+export (NodePath) var _username_path
 export (NodePath) var _bot_path
 export (NodePath) var _activity_path
-export (NodePath) var _status_path
 export (NodePath) var _avatar_path
 
-onready var tag = get_node(_tag_path) as Label
+onready var username = get_node(_username_path) as Label
 onready var avatar = get_node(_avatar_path) as TextureRect
 onready var bot = get_node(_bot_path) as PanelContainer
 onready var activity = get_node(_activity_path) as Label
@@ -16,8 +15,8 @@ onready var activity = get_node(_activity_path) as Label
 func set_avatar(p_texture: Texture) -> void:
 	avatar.texture = p_texture
 
-func set_tag(p_tag: String) -> void:
-	tag.text = p_tag
+func set_username(p_username: String) -> void:
+	username.text = p_username
 
 func set_activity(p_activity: String) -> void:
 	activity.text = p_activity
@@ -32,7 +31,7 @@ func set_status(p_status: String):
 
 func from_model(p_model: UserModel):
 	model = p_model
-	set_tag(model.username + "#" + model.discriminator)
+	set_username(model.username)
 	set_avatar(model.avatar)
 	set_bot(model.bot)
 	set_activity(model.activity)

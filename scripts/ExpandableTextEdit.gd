@@ -3,6 +3,7 @@ class_name ExpandableTextEdit
 extends TextEdit
 
 export var expand = true
+export var max_lines = 100000
 
 var scroll_bar
 
@@ -51,7 +52,10 @@ func _update_height(count):
 		return
 
 	var lines_to_show = count
-	rect_min_size.y = lines_to_show * (line_height + line_spacing * 1.5)
+	if lines_to_show > max_lines:
+		lines_to_show = max_lines
+
+	rect_min_size.y = lines_to_show * (line_height + line_spacing * 1.45)
 	rect_size.y = rect_min_size.y
 	update()
 

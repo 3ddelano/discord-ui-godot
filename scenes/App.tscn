@@ -65,7 +65,7 @@ border_width_bottom = 1
 border_color = Color( 0.137255, 0.145098, 0.160784, 1 )
 border_blend = true
 
-[sub_resource type="StyleBoxFlat" id=17]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0, 0, 0, 0.501961 )
 corner_radius_top_left = 4
 corner_radius_top_right = 4
@@ -73,14 +73,14 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 corner_detail = 20
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 1, 1, 1, 1 )
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_detail = 20
 anti_aliasing = false
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=13]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -95,7 +95,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=14]
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
@@ -111,7 +111,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=25]
+[sub_resource type="StyleBoxFlat" id=15]
 draw_center = false
 border_width_left = 1
 border_width_top = 1
@@ -345,9 +345,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MessagesList" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB" instance=ExtResource( 13 )]
-margin_bottom = 461.0
+margin_bottom = 458.0
 
 [node name="MessageForm" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB" instance=ExtResource( 16 )]
+margin_top = 458.0
 
 [node name="MembersList" parent="VB/MC/BG/HB/HB/VB2/PC/HB" instance=ExtResource( 14 )]
 
@@ -437,7 +438,7 @@ margin_bottom = 45.0
 mouse_filter = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_styles/panel = SubResource( 17 )
+custom_styles/panel = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -471,15 +472,15 @@ rect_pivot_offset = Vector2( 0, 12 )
 mouse_filter = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-custom_styles/panel = SubResource( 18 )
+custom_styles/panel = SubResource( 12 )
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VB/MC/Overlays/GuildHoverIndicator"]
-anims/hide = SubResource( 19 )
-anims/show = SubResource( 20 )
+anims/hide = SubResource( 13 )
+anims/show = SubResource( 14 )
 
 [node name="HelpPanel" parent="VB/MC/Overlays" instance=ExtResource( 29 )]
 
@@ -487,7 +488,7 @@ anims/show = SubResource( 20 )
 margin_right = 1174.0
 margin_bottom = 626.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 25 )
+custom_styles/panel = SubResource( 15 )
 __meta__ = {
 "_edit_lock_": true
 }

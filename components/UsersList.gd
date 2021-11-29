@@ -33,7 +33,7 @@ var users = [
 		"avatar": preload("res://assets/avatar_icons/435394854017826817.webp"),
 		"username": "Sairam",
 		"discriminator": "1724",
-		"activity": "Playing Openskycity",
+		"activity": "Playing OpenSkyCity",
 		"status": "INVISIBLE",
 		"bot": false
 	},

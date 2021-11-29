@@ -10,98 +10,96 @@
 [ext_resource path="res://components/IconButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/EmojiButton.gd" type="Script" id=9]
 [ext_resource path="res://scripts/MessageFormTextEdit.gd" type="Script" id=10]
-[ext_resource path="res://components/IconButton.gd" type="Script" id=11]
+[ext_resource path="res://assets/custom_theme.tres" type="Theme" id=11]
 [ext_resource path="res://components/TextInput.gd" type="Script" id=12]
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.25098, 0.266667, 0.294118, 1 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 0 )
 
-[sub_resource type="StyleBoxEmpty" id=13]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="StyleBoxEmpty" id=14]
+[sub_resource type="StyleBoxEmpty" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=15]
+[sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="StyleBoxEmpty" id=16]
+[sub_resource type="StyleBoxEmpty" id=6]
 
 [node name="MessageForm" type="MarginContainer"]
 margin_top = 461.0
 margin_right = 483.0
 margin_bottom = 534.0
 size_flags_vertical = 0
+theme = ExtResource( 11 )
 custom_constants/margin_right = 20
 custom_constants/margin_top = 1
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextInput" type="PanelContainer" parent="."]
 margin_left = 20.0
 margin_top = 1.0
 margin_right = 463.0
-margin_bottom = 41.0
+margin_bottom = 53.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 12 )
 
 [node name="HB" type="HBoxContainer" parent="TextInput"]
 margin_right = 443.0
-margin_bottom = 40.0
+margin_bottom = 52.0
 
 [node name="MC" type="MarginContainer" parent="TextInput/HB"]
 margin_right = 48.0
-margin_bottom = 36.0
+margin_bottom = 52.0
 size_flags_vertical = 0
 custom_constants/margin_right = 8
-custom_constants/margin_top = 12
+custom_constants/margin_top = 14
 custom_constants/margin_left = 8
+custom_constants/margin_bottom = 14
 
-[node name="IconButton" type="MarginContainer" parent="TextInput/HB/MC" instance=ExtResource( 8 )]
+[node name="IconButton" parent="TextInput/HB/MC" instance=ExtResource( 8 )]
 margin_left = 8.0
-margin_top = 12.0
+margin_top = 14.0
 margin_right = 40.0
-margin_bottom = 36.0
-rect_min_size = Vector2( 24, 24 )
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 38.0
 icon_texture = ExtResource( 3 )
-icon_color_hover = Color( 0.831373, 0.843137, 0.85098, 1 )
 bg_color_hover = Color( 0, 0, 0, 0 )
 
 [node name="MC2" type="MarginContainer" parent="TextInput/HB"]
 margin_left = 48.0
 margin_right = 284.0
-margin_bottom = 40.0
+margin_bottom = 52.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 14
-custom_constants/margin_top = 8
 custom_constants/margin_left = 14
-custom_constants/margin_bottom = 8
 
 [node name="PlaceholderText" type="Label" parent="TextInput/HB/MC2"]
 margin_left = 14.0
-margin_top = 10.0
+margin_top = 16.0
 margin_right = 139.0
-margin_bottom = 30.0
+margin_bottom = 36.0
 size_flags_horizontal = 0
 custom_colors/font_color = Color( 0.447059, 0.462745, 0.482353, 1 )
 text = "Message #general"
 
 [node name="ExpandableTextEdit" type="TextEdit" parent="TextInput/HB/MC2"]
 margin_left = 14.0
-margin_top = 8.0
+margin_top = 14.0
 margin_right = 222.0
-margin_bottom = 32.0
+margin_bottom = 38.0
 rect_min_size = Vector2( 150, 24 )
+size_flags_vertical = 4
 custom_styles/read_only = ExtResource( 1 )
 custom_styles/focus = ExtResource( 1 )
 custom_styles/normal = ExtResource( 1 )
@@ -114,57 +112,39 @@ wrap_enabled = true
 caret_blink = true
 caret_blink_speed = 0.35
 script = ExtResource( 10 )
+max_lines = 7
 
 [node name="MC3" type="MarginContainer" parent="TextInput/HB"]
 margin_left = 284.0
 margin_right = 443.0
-margin_bottom = 40.0
+margin_bottom = 52.0
 custom_constants/margin_right = 2
-custom_constants/margin_top = 9
+custom_constants/margin_top = 14
 
 [node name="HB" type="HBoxContainer" parent="TextInput/HB/MC3"]
-margin_top = 9.0
+margin_top = 14.0
 margin_right = 157.0
-margin_bottom = 38.0
+margin_bottom = 43.0
 size_flags_vertical = 0
 custom_constants/separation = 8
 
-[node name="GiftButton" type="MarginContainer" parent="TextInput/HB/MC3/HB" instance=ExtResource( 8 )]
-margin_right = 32.0
+[node name="GiftButton" parent="TextInput/HB/MC3/HB" instance=ExtResource( 8 )]
 margin_bottom = 29.0
-rect_min_size = Vector2( 24, 24 )
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 icon_texture = ExtResource( 4 )
-icon_color_hover = Color( 0.831373, 0.843137, 0.85098, 1 )
 bg_color_hover = Color( 0, 0, 0, 0 )
 
-[node name="GifButton" type="MarginContainer" parent="TextInput/HB/MC3/HB" instance=ExtResource( 8 )]
+[node name="GifButton" parent="TextInput/HB/MC3/HB" instance=ExtResource( 8 )]
 margin_left = 40.0
 margin_right = 72.0
 margin_bottom = 29.0
-rect_min_size = Vector2( 24, 24 )
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 icon_texture = ExtResource( 7 )
-icon_color_hover = Color( 0.831373, 0.843137, 0.85098, 1 )
 bg_color_hover = Color( 0, 0, 0, 0 )
 
-[node name="StickerButton" type="MarginContainer" parent="TextInput/HB/MC3/HB" instance=ExtResource( 8 )]
+[node name="StickerButton" parent="TextInput/HB/MC3/HB" instance=ExtResource( 8 )]
 margin_left = 80.0
 margin_right = 112.0
 margin_bottom = 29.0
-rect_min_size = Vector2( 24, 24 )
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 icon_texture = ExtResource( 6 )
-icon_color_hover = Color( 0.831373, 0.843137, 0.85098, 1 )
 bg_color_hover = Color( 0, 0, 0, 0 )
 
 [node name="EmojiButton" type="MarginContainer" parent="TextInput/HB/MC3/HB"]
@@ -184,11 +164,11 @@ margin_bottom = 29.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 
 [node name="MC" type="MarginContainer" parent="TextInput/HB/MC3/HB/EmojiButton"]
 margin_right = 37.0
