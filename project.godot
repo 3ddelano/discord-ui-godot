@@ -44,7 +44,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Discord App Clone"
+config/name="Discord UI Clone - Godot"
+config/description="A clone of Discord's UI made with the Godot Engine. This project is not affiliated with Discord Inc."
 run/main_scene="res://scenes/App.tscn"
 boot_splash/image="res://assets/godot_icon.png"
 boot_splash/fullsize=false

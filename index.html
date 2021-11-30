@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Discord UI - Godot</title>
+    <title>Discord UI Clone - Godot</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
 
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="title" content="Discord UI - Godot" />
+    <meta name="title" content="Discord UI Clone - Godot" />
     <meta
       name="description"
       content="Clone of Discord's UI made using Godot Game Engine."
@@ -17,8 +17,8 @@
     <meta name="author" content="Delano Lourenco" />
 
     <!-- OpenGraph Tags -->
-    <meta property="og:title" content="Discord UI - Godot" />
-    <meta property="og:site_name" content="Discord UI - Godot" />
+    <meta property="og:title" content="Discord UI Clone - Godot" />
+    <meta property="og:site_name" content="Discord UI Clone - Godot" />
     <meta property="og:url" content="https://discord-ui-godot.web.app" />
     <meta
       property="og:description"
@@ -33,12 +33,15 @@
     <!-- Twitter tags -->
     <meta name="twitter:card" content="app" />
     <meta name="twitter:site" content="@3ddelano" />
-    <meta name="twitter:description" content="Discord UI - Godot" />
+    <meta name="twitter:description" content="Discord UI Clone - Godot" />
 
     <!-- Favicon setup -->
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="theme-color" content="#5865F2" />
-
+	
+	<!-- Google search -->
+	<meta name="google-site-verification" content="p6kpn0ibyxyJLO414X0bhvnEAaqykira1UVJZicpQ40" />
+	
     <style>
       * {
         box-sizing: border-box;
@@ -56,6 +59,11 @@
         color: #fff;
         background-color: #202225;
       }
+	  .text-container{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	  }
       #canvas {
         display: block;
         margin: 0;
@@ -129,11 +137,14 @@
       Please try updating or use a different browser.
     </canvas>
     <div id="status">
-      <h1 style="margin-bottom: 16px; visibility: visible">Discord UI Godot</h1>
+      <div class="text-container" style="margin-bottom: 18px; visibility: visible">
+		<h1>Discord UI Clone - Godot</h1>
+		<p style="max-width: 85%; color: rgba(255,255,255,0.75); font-size: 14px; position: absolute; bottom: 24px">This site is not Discord.com and is not affiliated with Discord Inc. We do not send any data from your local machine.</p>
+	  </div>
       <!-- Indeterminate progress -->
       <div id="status-spinner" style="display: none"></div>
       <!-- Determinate progress -->
-      <div id="status-progressbar" style="display: none">
+      <div id="status-progressbar" style="display: block;">
         <div id="status-progressbar-inner"></div>
       </div>
       <!--- Notice -->

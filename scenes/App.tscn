@@ -345,10 +345,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MessagesList" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB" instance=ExtResource( 13 )]
-margin_bottom = 458.0
+margin_bottom = 449.0
 
 [node name="MessageForm" parent="VB/MC/BG/HB/HB/VB2/PC/HB/VB" instance=ExtResource( 16 )]
-margin_top = 458.0
+margin_top = 449.0
 
 [node name="MembersList" parent="VB/MC/BG/HB/HB/VB2/PC/HB" instance=ExtResource( 14 )]
 
@@ -483,6 +483,7 @@ anims/hide = SubResource( 13 )
 anims/show = SubResource( 14 )
 
 [node name="HelpPanel" parent="VB/MC/Overlays" instance=ExtResource( 29 )]
+visible = false
 
 [node name="Border" type="Panel" parent="."]
 margin_right = 1174.0
