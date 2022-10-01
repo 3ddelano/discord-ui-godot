@@ -2,7 +2,7 @@ Discord UI - Godot
 =========================================
 ### Clone of Discord's UI in the Godot Game Engine
 
-#### Try in on the web: [Not Discord](https://discord-ui-godot.web.app)
+#### Try in on the web: [Not Discord](https://3ddelano.github.io/discord-ui-godot/)
 
 <img alt="Godot3" src="https://img.shields.io/badge/-Godot 3.x-478CBF?style=for-the-badge&logo=godotengine&logoWidth=20&logoColor=white" />
 
